@@ -15,7 +15,6 @@
 		F930CA3B20571B4B0062B2AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F930CA3920571B4B0062B2AC /* LaunchScreen.storyboard */; };
 		F930CA4620571B4B0062B2AC /* PospaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA4520571B4B0062B2AC /* PospaneTests.swift */; };
 		F930CA5120571B4B0062B2AC /* PospaneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA5020571B4B0062B2AC /* PospaneUITests.swift */; };
-		F930CA6120571B610062B2AC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F930CA6020571B610062B2AC /* HealthKit.framework */; };
 		F930CA6820571D750062B2AC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F930CA6620571D750062B2AC /* Interface.storyboard */; };
 		F930CA6A20571D750062B2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F930CA6920571D750062B2AC /* Assets.xcassets */; };
 		F930CA7120571D750062B2AC /* PospaneWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F930CA7020571D750062B2AC /* PospaneWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -25,7 +24,7 @@
 		F930CA7C20571D750062B2AC /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA7B20571D750062B2AC /* ComplicationController.swift */; };
 		F930CA7E20571D750062B2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F930CA7D20571D750062B2AC /* Assets.xcassets */; };
 		F930CA8320571D750062B2AC /* PospaneWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F930CA6420571D750062B2AC /* PospaneWatch.app */; };
-		F930CA8E20571E600062B2AC /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F930CA8D20571E600062B2AC /* HealthKit.framework */; };
+		F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98B863E2061A0B80087DB36 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +84,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		162BEBB6CD8F55392CA7FB9C /* Pods-PospaneWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch.release.xcconfig"; sourceTree = "<group>"; };
+		44B97406A5AC775A7666436C /* Pods-PospaneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5ADCD997244BB55689D3925E /* Pods-PospaneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7DC077CC482D20B5DB129E2C /* Pods-Pospane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pospane.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pospane/Pods-Pospane.debug.xcconfig"; sourceTree = "<group>"; };
+		80FD0F48CEBE13BEBBED9EBE /* Pods-PospaneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests.release.xcconfig"; sourceTree = "<group>"; };
+		8CF13116F3F10259838FC772 /* Pods-PospaneWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
+		92717C6AC0916A7E6B85B336 /* Pods-PospaneWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		A761A98E13F87582742942A6 /* Pods-PospaneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A810633CD0766BFBEF17A87A /* Pods-Pospane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pospane.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pospane/Pods-Pospane.release.xcconfig"; sourceTree = "<group>"; };
+		C3CB844DCC579A53CD984013 /* Pods-PospaneWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		F930CA2B20571B4B0062B2AC /* Pospane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pospane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930CA2E20571B4B0062B2AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F930CA3020571B4B0062B2AC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +109,6 @@
 		F930CA5020571B4B0062B2AC /* PospaneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PospaneUITests.swift; sourceTree = "<group>"; };
 		F930CA5220571B4B0062B2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F930CA5E20571B610062B2AC /* Pospane.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pospane.entitlements; sourceTree = "<group>"; };
-		F930CA6020571B610062B2AC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		F930CA6420571D750062B2AC /* PospaneWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PospaneWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930CA6720571D750062B2AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		F930CA6920571D750062B2AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,15 +122,22 @@
 		F930CA7F20571D750062B2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F930CA8020571D750062B2AC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		F930CA8C20571E5F0062B2AC /* PospaneWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PospaneWatch Extension.entitlements"; sourceTree = "<group>"; };
-		F930CA8D20571E600062B2AC /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		F98B863E2061A0B80087DB36 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		467F767AF8D20F0DF644DF5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F930CA2820571B4B0062B2AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F930CA6120571B610062B2AC /* HealthKit.framework in Frameworks */,
+				F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,13 +159,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F930CA8E20571E600062B2AC /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DC1EAB743241E543B90B03E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DC077CC482D20B5DB129E2C /* Pods-Pospane.debug.xcconfig */,
+				A810633CD0766BFBEF17A87A /* Pods-Pospane.release.xcconfig */,
+				44B97406A5AC775A7666436C /* Pods-PospaneTests.debug.xcconfig */,
+				80FD0F48CEBE13BEBBED9EBE /* Pods-PospaneTests.release.xcconfig */,
+				5ADCD997244BB55689D3925E /* Pods-PospaneUITests.debug.xcconfig */,
+				A761A98E13F87582742942A6 /* Pods-PospaneUITests.release.xcconfig */,
+				C3CB844DCC579A53CD984013 /* Pods-PospaneWatch.debug.xcconfig */,
+				162BEBB6CD8F55392CA7FB9C /* Pods-PospaneWatch.release.xcconfig */,
+				92717C6AC0916A7E6B85B336 /* Pods-PospaneWatch Extension.debug.xcconfig */,
+				8CF13116F3F10259838FC772 /* Pods-PospaneWatch Extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F930CA2220571B4B0062B2AC = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +192,7 @@
 				F930CA7420571D750062B2AC /* PospaneWatch Extension */,
 				F930CA2C20571B4B0062B2AC /* Products */,
 				F930CA5F20571B610062B2AC /* Frameworks */,
+				3DC1EAB743241E543B90B03E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,8 +244,7 @@
 		F930CA5F20571B610062B2AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F930CA8D20571E600062B2AC /* HealthKit.framework */,
-				F930CA6020571B610062B2AC /* HealthKit.framework */,
+				F98B863E2061A0B80087DB36 /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,10 +281,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F930CA5520571B4B0062B2AC /* Build configuration list for PBXNativeTarget "Pospane" */;
 			buildPhases = (
+				AFC86357BC090A686B93C6FE /* [CP] Check Pods Manifest.lock */,
 				F930CA2720571B4B0062B2AC /* Sources */,
 				F930CA2820571B4B0062B2AC /* Frameworks */,
 				F930CA2920571B4B0062B2AC /* Resources */,
 				F930CA8B20571D750062B2AC /* Embed Watch Content */,
+				739443D59B4119C6933401E2 /* [CP] Embed Pods Frameworks */,
+				707E1A9D7BCF1B99F6B7CB44 /* [CP] Copy Pods Resources */,
+				F93E570420598164000BFFA0 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -269,9 +304,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F930CA5820571B4B0062B2AC /* Build configuration list for PBXNativeTarget "PospaneTests" */;
 			buildPhases = (
+				87E7222BE609BA59694C14CB /* [CP] Check Pods Manifest.lock */,
 				F930CA3D20571B4B0062B2AC /* Sources */,
 				F930CA3E20571B4B0062B2AC /* Frameworks */,
 				F930CA3F20571B4B0062B2AC /* Resources */,
+				414402A99B4B6DB8C238D261 /* [CP] Embed Pods Frameworks */,
+				477EC0DCE573AFD17422ACC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,9 +325,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F930CA5B20571B4B0062B2AC /* Build configuration list for PBXNativeTarget "PospaneUITests" */;
 			buildPhases = (
+				828A2AF8FA71DE7DB7876FD7 /* [CP] Check Pods Manifest.lock */,
 				F930CA4820571B4B0062B2AC /* Sources */,
 				F930CA4920571B4B0062B2AC /* Frameworks */,
 				F930CA4A20571B4B0062B2AC /* Resources */,
+				195B7BCCE1AABEA60FE8FCD2 /* [CP] Embed Pods Frameworks */,
+				6B5FF28544597BD69260AF8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,8 +346,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F930CA8A20571D750062B2AC /* Build configuration list for PBXNativeTarget "PospaneWatch" */;
 			buildPhases = (
+				59DCB1C5B31421A1E7CD61CF /* [CP] Check Pods Manifest.lock */,
 				F930CA6220571D750062B2AC /* Resources */,
 				F930CA8920571D750062B2AC /* Embed App Extensions */,
+				467F767AF8D20F0DF644DF5C /* Frameworks */,
+				4261485164AEEC23C1A4877F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -322,9 +366,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F930CA8820571D750062B2AC /* Build configuration list for PBXNativeTarget "PospaneWatch Extension" */;
 			buildPhases = (
+				65BDE2AC4ECA1A002D1C9C42 /* [CP] Check Pods Manifest.lock */,
 				F930CA6C20571D750062B2AC /* Sources */,
 				F930CA6D20571D750062B2AC /* Frameworks */,
 				F930CA6E20571D750062B2AC /* Resources */,
+				9B1265E07F4CD2EBA55B22B3 /* [CP] Embed Pods Frameworks */,
+				39BE54627C5D684AC7FB19D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,6 +491,248 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		195B7BCCE1AABEA60FE8FCD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39BE54627C5D684AC7FB19D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		414402A99B4B6DB8C238D261 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4261485164AEEC23C1A4877F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		477EC0DCE573AFD17422ACC8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59DCB1C5B31421A1E7CD61CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PospaneWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65BDE2AC4ECA1A002D1C9C42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PospaneWatch Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B5FF28544597BD69260AF8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		707E1A9D7BCF1B99F6B7CB44 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pospane/Pods-Pospane-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		739443D59B4119C6933401E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pospane/Pods-Pospane-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		828A2AF8FA71DE7DB7876FD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PospaneUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87E7222BE609BA59694C14CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PospaneTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B1265E07F4CD2EBA55B22B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFC86357BC090A686B93C6FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pospane-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F93E570420598164000BFFA0 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F930CA2720571B4B0062B2AC /* Sources */ = {
@@ -645,6 +934,7 @@
 		};
 		F930CA5620571B4B0062B2AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DC077CC482D20B5DB129E2C /* Pods-Pospane.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pospane/Pospane.entitlements;
@@ -661,6 +951,7 @@
 		};
 		F930CA5720571B4B0062B2AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A810633CD0766BFBEF17A87A /* Pods-Pospane.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Pospane/Pospane.entitlements;
@@ -677,6 +968,7 @@
 		};
 		F930CA5920571B4B0062B2AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44B97406A5AC775A7666436C /* Pods-PospaneTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -694,6 +986,7 @@
 		};
 		F930CA5A20571B4B0062B2AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80FD0F48CEBE13BEBBED9EBE /* Pods-PospaneTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -711,6 +1004,7 @@
 		};
 		F930CA5C20571B4B0062B2AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ADCD997244BB55689D3925E /* Pods-PospaneUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -727,6 +1021,7 @@
 		};
 		F930CA5D20571B4B0062B2AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A761A98E13F87582742942A6 /* Pods-PospaneUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -743,6 +1038,7 @@
 		};
 		F930CA8420571D750062B2AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3CB844DCC579A53CD984013 /* Pods-PospaneWatch.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -762,6 +1058,7 @@
 		};
 		F930CA8520571D750062B2AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162BEBB6CD8F55392CA7FB9C /* Pods-PospaneWatch.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -781,6 +1078,7 @@
 		};
 		F930CA8620571D750062B2AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92717C6AC0916A7E6B85B336 /* Pods-PospaneWatch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "PospaneWatch Extension/PospaneWatch Extension.entitlements";
@@ -800,6 +1098,7 @@
 		};
 		F930CA8720571D750062B2AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF13116F3F10259838FC772 /* Pods-PospaneWatch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "PospaneWatch Extension/PospaneWatch Extension.entitlements";

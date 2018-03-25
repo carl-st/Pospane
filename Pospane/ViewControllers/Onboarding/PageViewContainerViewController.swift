@@ -18,10 +18,11 @@ class PageViewContainerViewController: UIViewController, UIPageViewControllerDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+
+        let storyboard = UIStoryboard(name: StoryboardNames.Onboarding.rawValue, bundle: nil)
+        pages = storyboard.instantiateViewControllersWith(identifiers: [ViewControllerStoryboardIdentifier.HealthKitOnbarding,
+                                                                          ViewControllerStoryboardIdentifier.NotificationsOnboarding,
+                                                                          ViewControllerStoryboardIdentifier.GetStartedOnboarding])
         pageContainer = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageContainer.delegate = self
         pageContainer.dataSource = self
@@ -65,17 +66,18 @@ class PageViewContainerViewController: UIViewController, UIPageViewControllerDat
         }
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == SegueIdentifier.InterpeterLanguages.rawValue {
-//            if let vc = segue.destination as? PageViewContainerViewController {
-//                let storyboard = UIStoryboard(name: StoryboardNames.SignIn.rawValue, bundle: nil)
-//                let pages = storyboard.instantiateViewControllersWithIdentifiers([ViewControllerStoryboardIdentifier.HealthKitOnbarding,
-//                                                                                  ViewControllerStoryboardIdentifier.GetStartedOnboarding,
-//                                                                                  ViewControllerStoryboardIdentifier.GetStartedOnboarding])
-//                vc.pages = pages
-//            }
-//        }
-//    }
+}
+
+extension UIStoryboard {
+    
+    func instantiateViewControllersWith(identifiers: [ViewControllerStoryboardIdentifier]) -> [UIViewController] {
+        var vcs: [UIViewController] = []
+        for identifier in identifiers {
+            let vc = instantiateViewController(withIdentifier: identifier.rawValue)
+            vcs.append(vc)
+        }
+        return vcs
+    }
     
 }
 

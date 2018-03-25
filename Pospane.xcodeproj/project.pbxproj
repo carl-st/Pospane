@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16995032DA99A45F27C9A2BE /* Pods_PospaneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FCF7EB92B4E4D4EB0F4958 /* Pods_PospaneTests.framework */; };
+		25BA288C7198A18519A3D50A /* Pods_Pospane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C9C5C9F3E001D4DEFBF2E7 /* Pods_Pospane.framework */; };
+		946A5F45A800897614397978 /* Pods_PospaneWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C49487CA1C60BE04FFBB9FF /* Pods_PospaneWatch_Extension.framework */; };
+		C4DE09FB332C1A6364816709 /* Pods_PospaneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F662546167969397F063E540 /* Pods_PospaneUITests.framework */; };
+		CD1FE994ACACB4A66655ABD1 /* Pods_PospaneWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9852B39F8C4F8637A529CCBE /* Pods_PospaneWatch.framework */; };
 		F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA2E20571B4B0062B2AC /* AppDelegate.swift */; };
 		F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3020571B4B0062B2AC /* SleepViewController.swift */; };
 		F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3220571B4B0062B2AC /* StatisticsViewController.swift */; };
@@ -29,6 +34,7 @@
 		F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */; };
 		F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788482067E69600513B1A /* PageViewContainerViewController.swift */; };
 		F9A7884D2067E69600513B1A /* HealthKitOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788492067E69600513B1A /* HealthKitOnbardingViewController.swift */; };
+		F9A788502067E9CD00513B1A /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A7884F2067E9CD00513B1A /* Appearance.swift */; };
 		F9CCF0EF2067B38E001D90D2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */; };
 		F9CCF1002067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1012067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
@@ -93,16 +99,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03C9C5C9F3E001D4DEFBF2E7 /* Pods_Pospane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pospane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		162BEBB6CD8F55392CA7FB9C /* Pods-PospaneWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch.release.xcconfig"; sourceTree = "<group>"; };
+		38FCF7EB92B4E4D4EB0F4958 /* Pods_PospaneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B97406A5AC775A7666436C /* Pods-PospaneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ADCD997244BB55689D3925E /* Pods-PospaneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C49487CA1C60BE04FFBB9FF /* Pods_PospaneWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC077CC482D20B5DB129E2C /* Pods-Pospane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pospane.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pospane/Pods-Pospane.debug.xcconfig"; sourceTree = "<group>"; };
 		80FD0F48CEBE13BEBBED9EBE /* Pods-PospaneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests.release.xcconfig"; sourceTree = "<group>"; };
 		8CF13116F3F10259838FC772 /* Pods-PospaneWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		92717C6AC0916A7E6B85B336 /* Pods-PospaneWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		9852B39F8C4F8637A529CCBE /* Pods_PospaneWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A761A98E13F87582742942A6 /* Pods-PospaneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A810633CD0766BFBEF17A87A /* Pods-Pospane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pospane.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pospane/Pods-Pospane.release.xcconfig"; sourceTree = "<group>"; };
 		C3CB844DCC579A53CD984013 /* Pods-PospaneWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		F662546167969397F063E540 /* Pods_PospaneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930CA2B20571B4B0062B2AC /* Pospane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pospane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930CA2E20571B4B0062B2AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F930CA3020571B4B0062B2AC /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +147,7 @@
 		F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsOnboardingViewController.swift; sourceTree = "<group>"; };
 		F9A788482067E69600513B1A /* PageViewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewContainerViewController.swift; sourceTree = "<group>"; };
 		F9A788492067E69600513B1A /* HealthKitOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitOnbardingViewController.swift; sourceTree = "<group>"; };
+		F9A7884F2067E9CD00513B1A /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIConstants.swift; path = Pospane/UIConstants.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -145,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1FE994ACACB4A66655ABD1 /* Pods_PospaneWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */,
+				25BA288C7198A18519A3D50A /* Pods_Pospane.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16995032DA99A45F27C9A2BE /* Pods_PospaneTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DE09FB332C1A6364816709 /* Pods_PospaneUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946A5F45A800897614397978 /* Pods_PospaneWatch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +276,11 @@
 			isa = PBXGroup;
 			children = (
 				F98B863E2061A0B80087DB36 /* HealthKit.framework */,
+				03C9C5C9F3E001D4DEFBF2E7 /* Pods_Pospane.framework */,
+				38FCF7EB92B4E4D4EB0F4958 /* Pods_PospaneTests.framework */,
+				F662546167969397F063E540 /* Pods_PospaneUITests.framework */,
+				9852B39F8C4F8637A529CCBE /* Pods_PospaneWatch.framework */,
+				7C49487CA1C60BE04FFBB9FF /* Pods_PospaneWatch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -312,6 +334,7 @@
 		F9CCF0F02067B5D4001D90D2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F9A7884F2067E9CD00513B1A /* Appearance.swift */,
 				F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */,
 			);
 			path = Common;
@@ -704,11 +727,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pospane/Pods-Pospane-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SIAlertView/SIAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SIAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -757,9 +784,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SIAlertView/SIAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SIAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -796,7 +828,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -806,6 +838,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */,
+				F9A788502067E9CD00513B1A /* Appearance.swift in Sources */,
 				F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */,
 				F9A7884D2067E69600513B1A /* HealthKitOnbardingViewController.swift in Sources */,
 				F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */,

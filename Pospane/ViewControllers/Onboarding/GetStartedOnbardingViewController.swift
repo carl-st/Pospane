@@ -10,10 +10,10 @@ import UIKit
 
 class GetStartedOnbardingViewController: UIViewController {
 
+    @IBOutlet var getStartedLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getStartedLabel.setFAIcon(icon: .FACheckCircleO, iconSize: 200)
     }
 
 }

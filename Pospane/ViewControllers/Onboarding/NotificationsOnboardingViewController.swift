@@ -10,10 +10,11 @@ import UIKit
 
 class NotificationsOnboardingViewController: UIViewController {
 
+    @IBOutlet var notificationsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        notificationsLabel.setFAIcon(icon: .FABellO, iconSize: 200)
     }
 
 }

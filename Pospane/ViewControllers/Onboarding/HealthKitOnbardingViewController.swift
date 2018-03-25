@@ -8,16 +8,25 @@
 
 import UIKit
 import HealthKit
+import SIAlertView
+import Font_Awesome_Swift
 
 class HealthKitOnbardingViewController: UIViewController {
+    
+    @IBOutlet var healthLabel: UILabel!
     private let healthStore = HKHealthStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        healthLabel.setFAIcon(icon: .FAHeartbeat, iconSize: 200)
 
-        // Do any additional setup after loading the view.
     }
-
+    
+    
+    @IBAction func authoriseClicked(_ sender: Any) {
+        authorizeHealthKit()
+    }
+    
     private func authorizeHealthKit() {
         let types: Set = [
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,

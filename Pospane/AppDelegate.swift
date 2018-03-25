@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let onboarded: Bool = defaults.bool(forKey: "Onboarded" )
         if !onboarded {
             let storyboard = UIStoryboard(name: StoryboardNames.Onboarding.rawValue, bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllerStoryboardIdentifier.HealthKitOnbarding.rawValue)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllerStoryboardIdentifier.PageViewContainer.rawValue)
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }

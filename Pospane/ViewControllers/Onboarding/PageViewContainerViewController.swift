@@ -65,17 +65,17 @@ class PageViewContainerViewController: UIViewController, UIPageViewControllerDat
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == SegueIdentifier.InterpeterLanguages.rawValue {
-            if let vc = segue.destination as? PageViewContainerViewController {
-                let storyboard = UIStoryboard(name: StoryboardNames.SignIn.rawValue, bundle: nil)
-                let pages = storyboard.instantiateViewControllersWithIdentifiers([ViewControllerStoryboardIdentifier.HealthKitOnbarding,
-                                                                                  ViewControllerStoryboardIdentifier.GetStartedOnboarding,
-                                                                                  ViewControllerStoryboardIdentifier.GetStartedOnboarding])
-                vc.pages = pages
-            }
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == SegueIdentifier.InterpeterLanguages.rawValue {
+//            if let vc = segue.destination as? PageViewContainerViewController {
+//                let storyboard = UIStoryboard(name: StoryboardNames.SignIn.rawValue, bundle: nil)
+//                let pages = storyboard.instantiateViewControllersWithIdentifiers([ViewControllerStoryboardIdentifier.HealthKitOnbarding,
+//                                                                                  ViewControllerStoryboardIdentifier.GetStartedOnboarding,
+//                                                                                  ViewControllerStoryboardIdentifier.GetStartedOnboarding])
+//                vc.pages = pages
+//            }
+//        }
+//    }
     
 }
 

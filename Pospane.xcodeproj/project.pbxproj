@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E676646AF4B34A0D5DBF010 /* Pods_PospaneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9025F6059918C5A3F9266A5 /* Pods_PospaneUITests.framework */; };
-		40413FBC9F3A91F797A48CA6 /* Pods_Pospane.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0279BD6C07A81C0716255545 /* Pods_Pospane.framework */; };
-		B93C1CD1B8512BD22EFC4FA0 /* Pods_PospaneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB766097C8F038DB2F279D24 /* Pods_PospaneTests.framework */; };
-		C6DD1AA1D6646A5B35A3560F /* Pods_PospaneWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5F65B989758EBBE9588CCF /* Pods_PospaneWatch.framework */; };
-		E3B18B4CDF9C37EDD07ED93A /* Pods_PospaneWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDE1A4DF087F4FAF3F7DB3C /* Pods_PospaneWatch_Extension.framework */; };
 		F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA2E20571B4B0062B2AC /* AppDelegate.swift */; };
 		F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3020571B4B0062B2AC /* SleepViewController.swift */; };
 		F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3220571B4B0062B2AC /* StatisticsViewController.swift */; };
@@ -30,28 +25,15 @@
 		F930CA7E20571D750062B2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F930CA7D20571D750062B2AC /* Assets.xcassets */; };
 		F930CA8320571D750062B2AC /* PospaneWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F930CA6420571D750062B2AC /* PospaneWatch.app */; };
 		F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98B863E2061A0B80087DB36 /* HealthKit.framework */; };
-		F9AA36C02067D7D400CAABE0 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA36BF2067D7D400CAABE0 /* Appearance.swift */; };
+		F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */; };
+		F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */; };
+		F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788482067E69600513B1A /* PageViewContainerViewController.swift */; };
+		F9A7884D2067E69600513B1A /* HealthKitOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788492067E69600513B1A /* HealthKitOnbardingViewController.swift */; };
 		F9CCF0EF2067B38E001D90D2 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */; };
-		F9CCF0F22067B5F2001D90D2 /* PageViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0F12067B5F2001D90D2 /* PageViewContainerViewController.swift */; };
 		F9CCF1002067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1012067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1022067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1032067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
-		F9CCF1062067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF1052067BD9C001D90D2 /* HealthKitOnbardingViewController.swift */; };
-		F9CCF1072067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF1052067BD9C001D90D2 /* HealthKitOnbardingViewController.swift */; };
-		F9CCF1082067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF1052067BD9C001D90D2 /* HealthKitOnbardingViewController.swift */; };
-		F9CCF1092067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF1052067BD9C001D90D2 /* HealthKitOnbardingViewController.swift */; };
-		F9CCF10B2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10A2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift */; };
-		F9CCF10C2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10A2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift */; };
-		F9CCF10D2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10A2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift */; };
-		F9CCF10E2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10A2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift */; };
-		F9CCF1102067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10F2067C250001D90D2 /* GetStartedOnbardingViewController.swift */; };
-		F9CCF1112067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10F2067C250001D90D2 /* GetStartedOnbardingViewController.swift */; };
-		F9CCF1122067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10F2067C250001D90D2 /* GetStartedOnbardingViewController.swift */; };
-		F9CCF1132067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF10F2067C250001D90D2 /* GetStartedOnbardingViewController.swift */; };
-		F9CCF1162067C386001D90D2 /* PageViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0F12067B5F2001D90D2 /* PageViewContainerViewController.swift */; };
-		F9CCF1172067C386001D90D2 /* PageViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0F12067B5F2001D90D2 /* PageViewContainerViewController.swift */; };
-		F9CCF1182067C386001D90D2 /* PageViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0F12067B5F2001D90D2 /* PageViewContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,21 +93,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0279BD6C07A81C0716255545 /* Pods_Pospane.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pospane.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		162BEBB6CD8F55392CA7FB9C /* Pods-PospaneWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch.release.xcconfig"; sourceTree = "<group>"; };
 		44B97406A5AC775A7666436C /* Pods-PospaneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ADCD997244BB55689D3925E /* Pods-PospaneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7DC077CC482D20B5DB129E2C /* Pods-Pospane.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pospane.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pospane/Pods-Pospane.debug.xcconfig"; sourceTree = "<group>"; };
 		80FD0F48CEBE13BEBBED9EBE /* Pods-PospaneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests.release.xcconfig"; sourceTree = "<group>"; };
 		8CF13116F3F10259838FC772 /* Pods-PospaneWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
-		8E5F65B989758EBBE9588CCF /* Pods_PospaneWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92717C6AC0916A7E6B85B336 /* Pods-PospaneWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		9BDE1A4DF087F4FAF3F7DB3C /* Pods_PospaneWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A761A98E13F87582742942A6 /* Pods-PospaneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A810633CD0766BFBEF17A87A /* Pods-Pospane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pospane.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pospane/Pods-Pospane.release.xcconfig"; sourceTree = "<group>"; };
-		BB766097C8F038DB2F279D24 /* Pods_PospaneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CB844DCC579A53CD984013 /* Pods-PospaneWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch.debug.xcconfig"; sourceTree = "<group>"; };
-		F9025F6059918C5A3F9266A5 /* Pods_PospaneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930CA2B20571B4B0062B2AC /* Pospane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pospane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930CA2E20571B4B0062B2AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F930CA3020571B4B0062B2AC /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
@@ -155,13 +132,12 @@
 		F930CA8020571D750062B2AC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		F930CA8C20571E5F0062B2AC /* PospaneWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PospaneWatch Extension.entitlements"; sourceTree = "<group>"; };
 		F98B863E2061A0B80087DB36 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		F9AA36BF2067D7D400CAABE0 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedOnbardingViewController.swift; sourceTree = "<group>"; };
+		F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsOnboardingViewController.swift; sourceTree = "<group>"; };
+		F9A788482067E69600513B1A /* PageViewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewContainerViewController.swift; sourceTree = "<group>"; };
+		F9A788492067E69600513B1A /* HealthKitOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitOnbardingViewController.swift; sourceTree = "<group>"; };
 		F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
-		F9CCF0F12067B5F2001D90D2 /* PageViewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewContainerViewController.swift; sourceTree = "<group>"; };
 		F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIConstants.swift; path = Pospane/UIConstants.swift; sourceTree = SOURCE_ROOT; };
-		F9CCF1052067BD9C001D90D2 /* HealthKitOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitOnbardingViewController.swift; sourceTree = "<group>"; };
-		F9CCF10A2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsOnboardingViewController.swift; sourceTree = "<group>"; };
-		F9CCF10F2067C250001D90D2 /* GetStartedOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedOnbardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6DD1AA1D6646A5B35A3560F /* Pods_PospaneWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */,
-				40413FBC9F3A91F797A48CA6 /* Pods_Pospane.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +160,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93C1CD1B8512BD22EFC4FA0 /* Pods_PospaneTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +167,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E676646AF4B34A0D5DBF010 /* Pods_PospaneUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +174,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3B18B4CDF9C37EDD07ED93A /* Pods_PospaneWatch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,11 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				F98B863E2061A0B80087DB36 /* HealthKit.framework */,
-				0279BD6C07A81C0716255545 /* Pods_Pospane.framework */,
-				BB766097C8F038DB2F279D24 /* Pods_PospaneTests.framework */,
-				F9025F6059918C5A3F9266A5 /* Pods_PospaneUITests.framework */,
-				8E5F65B989758EBBE9588CCF /* Pods_PospaneWatch.framework */,
-				9BDE1A4DF087F4FAF3F7DB3C /* Pods_PospaneWatch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -322,6 +288,17 @@
 			path = "PospaneWatch Extension";
 			sourceTree = "<group>";
 		};
+		F9A7884E2067E6A000513B1A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */,
+				F9A788492067E69600513B1A /* HealthKitOnbardingViewController.swift */,
+				F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */,
+				F9A788482067E69600513B1A /* PageViewContainerViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		F9CCF0ED2067B36E001D90D2 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */,
-				F9AA36BF2067D7D400CAABE0 /* Appearance.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -344,21 +320,10 @@
 		F9CCF1042067BD65001D90D2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F9A7884E2067E6A000513B1A /* Onboarding */,
 				F9CCF1152067C339001D90D2 /* Main */,
-				F9CCF1142067C32D001D90D2 /* Onboarding */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		F9CCF1142067C32D001D90D2 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				F9CCF0F12067B5F2001D90D2 /* PageViewContainerViewController.swift */,
-				F9CCF1052067BD9C001D90D2 /* HealthKitOnbardingViewController.swift */,
-				F9CCF10A2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift */,
-				F9CCF10F2067C250001D90D2 /* GetStartedOnbardingViewController.swift */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		F9CCF1152067C339001D90D2 /* Main */ = {
@@ -841,13 +806,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */,
-				F9AA36C02067D7D400CAABE0 /* Appearance.swift in Sources */,
 				F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */,
-				F9CCF0F22067B5F2001D90D2 /* PageViewContainerViewController.swift in Sources */,
+				F9A7884D2067E69600513B1A /* HealthKitOnbardingViewController.swift in Sources */,
+				F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */,
 				F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */,
-				F9CCF1102067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */,
-				F9CCF10B2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */,
-				F9CCF1062067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */,
+				F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */,
+				F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */,
 				F9CCF1002067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,11 +820,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9CCF1162067C386001D90D2 /* PageViewContainerViewController.swift in Sources */,
 				F930CA4620571B4B0062B2AC /* PospaneTests.swift in Sources */,
-				F9CCF1072067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */,
-				F9CCF1112067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */,
-				F9CCF10C2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */,
 				F9CCF1012067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -869,11 +829,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9CCF1182067C386001D90D2 /* PageViewContainerViewController.swift in Sources */,
 				F930CA5120571B4B0062B2AC /* PospaneUITests.swift in Sources */,
-				F9CCF1082067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */,
-				F9CCF1122067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */,
-				F9CCF10D2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */,
 				F9CCF1022067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,11 +841,7 @@
 				F930CA7A20571D750062B2AC /* NotificationController.swift in Sources */,
 				F930CA7C20571D750062B2AC /* ComplicationController.swift in Sources */,
 				F930CA7820571D750062B2AC /* ExtensionDelegate.swift in Sources */,
-				F9CCF1172067C386001D90D2 /* PageViewContainerViewController.swift in Sources */,
 				F930CA7620571D750062B2AC /* InterfaceController.swift in Sources */,
-				F9CCF1132067C250001D90D2 /* GetStartedOnbardingViewController.swift in Sources */,
-				F9CCF10E2067BFF1001D90D2 /* NotificationsOnboardingViewController.swift in Sources */,
-				F9CCF1092067BD9C001D90D2 /* HealthKitOnbardingViewController.swift in Sources */,
 				F9CCF1032067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

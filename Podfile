@@ -7,6 +7,7 @@ target 'Pospane' do
 
   # Pods for Pospane
   pod 'SwiftLint'
+  pod 'FontAwesome.swift'
 
   target 'PospaneTests' do
     inherit! :search_paths

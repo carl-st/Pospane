@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SleepViewController.swift
 //  Pospane
 //
 //  Created by Karol Stępień on 12.03.2018.
@@ -10,7 +10,7 @@ import UIKit
 import HealthKit
 import WatchConnectivity
 
-class FirstViewController: UIViewController {
+class SleepViewController: UIViewController {
     private let healthStore = HKHealthStore()
     private var observerQuery: HKObserverQuery?
     private let heartRateUnit = HKUnit(from: "count/min")
@@ -20,28 +20,9 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        authorizeHealthKit()
+        navigationController?.navigationBar.barStyle = .black 
     }
 
-    private func authorizeHealthKit() {
-        let typesToRead: Set = [
-            HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,
-            HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!
-        ]
-        
-        let typesToShare: Set = [
-            HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!
-        ]
-        
-
-        healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (bool, error) in
-            if let e = error {
-                print("oops something went wrong during authorisation \(e.localizedDescription)")
-            } else {
-                print("User has completed the authorization flow")
-            }
-        }
-    }
     
     func saveSleepAnalysis() {
         

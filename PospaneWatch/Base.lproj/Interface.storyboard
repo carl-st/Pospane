@@ -1,16 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller animationDuration="2" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PospaneWatch" customModuleProvider="target">
+                    <items>
+                        <label width="1" height="131" alignment="center" verticalAlignment="center" text="Sleep" textAlignment="center" id="Cjx-n4-1Pc">
+                            <fontDescription key="font" type="boldSystem" pointSize="36"/>
+                        </label>
+                    </items>
+                    <menu key="menu" id="zmW-bd-HEe">
+                        <items>
+                            <menuItem title="Sleep" icon="add" id="JjM-C3-chC">
+                                <connections>
+                                    <action selector="sleepClicked" destination="AgC-eL-Hgc" id="Gka-k9-xk5"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Wake" icon="accept" id="Fgp-Xk-8bD">
+                                <connections>
+                                    <action selector="wakeClicked" destination="AgC-eL-Hgc" id="BfW-UC-mNI"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="sleepLabel" destination="Cjx-n4-1Pc" id="kB6-ag-u5a"/>
+                        <segue destination="WLB-oU-SCy" kind="relationship" relationship="nextPage" id="HEJ-tz-NqK"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--History Interface Controller-->
+        <scene sceneID="P80-wD-Ggi">
+            <objects>
+                <controller id="WLB-oU-SCy" customClass="HistoryInterfaceController" customModule="PospaneWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--Confirm Interface Controller-->
+        <scene sceneID="NR5-iL-MFf">
+            <objects>
+                <controller id="6Mh-18-A7I" customClass="ConfirmInterfaceController" customModule="PospaneWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="345"/>
+        </scene>
+        <!--Asleep Time Setter Interface Controller-->
+        <scene sceneID="wsx-f5-cf6">
+            <objects>
+                <controller id="aFt-TW-NsZ" customClass="AsleepTimeSetterInterfaceController" customModule="PospaneWatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -31,7 +80,7 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="PospaneWatch" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>

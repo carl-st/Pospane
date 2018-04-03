@@ -15,5 +15,14 @@ class GetStartedOnbardingViewController: UIViewController {
         super.viewDidLoad()
         getStartedLabel.setFAIcon(icon: .FACheckCircleO, iconSize: 200)
     }
+    
+    @IBAction func getStartedClicked(_ sender: Any) {
+        self.performSegue(withIdentifier: SegueIdentifier.showMain.rawValue, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.showMain.rawValue {
 
+        }
+    }
 }

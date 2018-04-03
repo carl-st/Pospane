@@ -11,6 +11,7 @@ import HealthKit
 import WatchConnectivity
 
 class SleepViewController: UIViewController {
+    @IBOutlet var sleepButton: UIButton!
     private let healthStore = HKHealthStore()
     private var observerQuery: HKObserverQuery?
     private let heartRateUnit = HKUnit(from: "count/min")
@@ -20,13 +21,13 @@ class SleepViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barStyle = .black 
+        navigationController?.navigationBar.barStyle = .black
+        sleepButton.setFAIcon(icon: .FAPowerOff, iconSize: 200, forState: .normal)
+        sleepButton.layer.cornerRadius = 4.0
     }
 
     
     func saveSleepAnalysis() {
-        
-
         if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
 
             let object = HKCategorySample(type:sleepType, value: HKCategoryValueSleepAnalysis.inBed.rawValue, start: self.alarmTime, end: self.endTime)

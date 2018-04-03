@@ -29,6 +29,8 @@
 		F930CA7C20571D750062B2AC /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA7B20571D750062B2AC /* ComplicationController.swift */; };
 		F930CA7E20571D750062B2AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F930CA7D20571D750062B2AC /* Assets.xcassets */; };
 		F930CA8320571D750062B2AC /* PospaneWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F930CA6420571D750062B2AC /* PospaneWatch.app */; };
+		F94C681C20740500003E9FCE /* SleepModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F94C681A20740500003E9FCE /* SleepModel.xcdatamodeld */; };
+		F94C681E2074094A003E9FCE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C681D2074094A003E9FCE /* HistoryViewController.swift */; };
 		F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98B863E2061A0B80087DB36 /* HealthKit.framework */; };
 		F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */; };
 		F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */; };
@@ -142,6 +144,8 @@
 		F930CA7F20571D750062B2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F930CA8020571D750062B2AC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		F930CA8C20571E5F0062B2AC /* PospaneWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PospaneWatch Extension.entitlements"; sourceTree = "<group>"; };
+		F94C681B20740500003E9FCE /* SleepModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepModel.xcdatamodel; sourceTree = "<group>"; };
+		F94C681D2074094A003E9FCE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F98B863E2061A0B80087DB36 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedOnbardingViewController.swift; sourceTree = "<group>"; };
 		F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 		F930CA2D20571B4B0062B2AC /* Pospane */ = {
 			isa = PBXGroup;
 			children = (
+				F94C6819207404AD003E9FCE /* Persistence */,
 				F930CA2E20571B4B0062B2AC /* AppDelegate.swift */,
 				F9CCF1042067BD65001D90D2 /* ViewControllers */,
 				F9CCF0F02067B5D4001D90D2 /* Common */,
@@ -310,6 +315,14 @@
 			path = "PospaneWatch Extension";
 			sourceTree = "<group>";
 		};
+		F94C6819207404AD003E9FCE /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				F94C681A20740500003E9FCE /* SleepModel.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		F9A7884E2067E6A000513B1A /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +367,7 @@
 			children = (
 				F930CA3020571B4B0062B2AC /* SleepViewController.swift */,
 				F930CA3220571B4B0062B2AC /* StatisticsViewController.swift */,
+				F94C681D2074094A003E9FCE /* HistoryViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -838,9 +852,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */,
+				F94C681C20740500003E9FCE /* SleepModel.xcdatamodeld in Sources */,
 				F9A788502067E9CD00513B1A /* Appearance.swift in Sources */,
 				F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */,
 				F9A7884D2067E69600513B1A /* HealthKitOnbardingViewController.swift in Sources */,
+				F94C681E2074094A003E9FCE /* HistoryViewController.swift in Sources */,
 				F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */,
 				F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */,
 				F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */,
@@ -1288,6 +1304,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F94C681A20740500003E9FCE /* SleepModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F94C681B20740500003E9FCE /* SleepModel.xcdatamodel */,
+			);
+			currentVersion = F94C681B20740500003E9FCE /* SleepModel.xcdatamodel */;
+			path = SleepModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F930CA2320571B4B0062B2AC /* Project object */;
 }

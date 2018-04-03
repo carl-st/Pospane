@@ -13,3 +13,7 @@ public enum ViewControllerStoryboardIdentifier: String {
     case NotificationsOnboarding
     case PageViewContainer
 }
+
+public enum SegueIdentifier: String {
+    case showMain
+}

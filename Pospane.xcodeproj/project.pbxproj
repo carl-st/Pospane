@@ -45,6 +45,7 @@
 		F9CCF1012067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1022067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1032067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
+		F9D1414E2076B05400667255 /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		F9A7884F2067E9CD00513B1A /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIConstants.swift; path = Pospane/UIConstants.swift; sourceTree = SOURCE_ROOT; };
+		F9D1414D2076B05400667255 /* SleepSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,8 +255,9 @@
 		F930CA2D20571B4B0062B2AC /* Pospane */ = {
 			isa = PBXGroup;
 			children = (
-				F94C6819207404AD003E9FCE /* Persistence */,
 				F930CA2E20571B4B0062B2AC /* AppDelegate.swift */,
+				F94C6819207404AD003E9FCE /* Persistence */,
+				F9D1414C2076B02700667255 /* Model */,
 				F9CCF1042067BD65001D90D2 /* ViewControllers */,
 				F9CCF0F02067B5D4001D90D2 /* Common */,
 				F9CCF0ED2067B36E001D90D2 /* Storyboards */,
@@ -387,6 +390,14 @@
 				F94C681D2074094A003E9FCE /* HistoryViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		F9D1414C2076B02700667255 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9D1414D2076B05400667255 /* SleepSession.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -878,6 +889,7 @@
 				F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */,
 				F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */,
 				F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */,
+				F9D1414E2076B05400667255 /* SleepSession.swift in Sources */,
 				F9CCF1002067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

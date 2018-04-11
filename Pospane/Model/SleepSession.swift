@@ -17,27 +17,15 @@ class SleepSession {
     var awake: [Int]?
     var outOfBed: [Int]?
     
-    convenience init(withSleepSession session: Dictionary<String, AnyObject>) {
+    convenience init(withSleepSession session: NSDictionary) {
         self.init()
         print(session)
-        for (key, value) in session {
-            switch key {
-            case "isInProgress":
-                self.isInProgress = value as? Bool
-            case "name":
-                self.name = value as? String
-            case "inBed":
-                self.inBed = value as? [Int]
-            case "asleep":
-                self.asleep = value as? [Int]
-            case "awake":
-                self.awake = value as? [Int]
-            case "outOfBed":
-                self.outOfBed = value as? [Int]
-            default:
-                break;
-            }
-        }
+            self.isInProgress = session.object(forKey: "isInProgress") as? Bool
+            self.name = session.object(forKey: "name") as? String
+            self.inBed = session.object(forKey: "inBed") as? [Int]
+            self.asleep = session.object(forKey: "asleep") as? [Int]
+            self.awake = session.object(forKey: "awake") as? [Int]
+            self.outOfBed = session.object(forKey: "outOfBed") as? [Int]
     }
     
 }

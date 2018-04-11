@@ -46,6 +46,8 @@
 		F9CCF1022067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1032067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9D1414E2076B05400667255 /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
+		F9DED0B4207D469F00202C4E /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
+		F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DED0B5207D514E00202C4E /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,7 @@
 		F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIConstants.swift; path = Pospane/UIConstants.swift; sourceTree = SOURCE_ROOT; };
 		F9D1414D2076B05400667255 /* SleepSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSession.swift; sourceTree = "<group>"; };
+		F9DED0B5207D514E00202C4E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +372,7 @@
 			children = (
 				F9A7884F2067E9CD00513B1A /* Appearance.swift */,
 				F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */,
+				F9DED0B5207D514E00202C4E /* Helpers.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -889,6 +893,7 @@
 				F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */,
 				F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */,
 				F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */,
+				F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */,
 				F9D1414E2076B05400667255 /* SleepSession.swift in Sources */,
 				F9CCF1002067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
@@ -923,6 +928,7 @@
 				F930CA7820571D750062B2AC /* ExtensionDelegate.swift in Sources */,
 				F930CA7620571D750062B2AC /* InterfaceController.swift in Sources */,
 				F94C682320741479003E9FCE /* ConfirmInterfaceController.swift in Sources */,
+				F9DED0B4207D469F00202C4E /* SleepSession.swift in Sources */,
 				F9CCF1032067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

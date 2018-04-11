@@ -35,7 +35,7 @@ class HealthKitOnbardingViewController: UIViewController {
         
         healthStore.requestAuthorization(toShare: types, read: types) { (bool, error) in
             if let e = error {
-                print("oops something went wrong during authorisation \(e.localizedDescription)")
+                print("oops something went wrong during authorization \(e.localizedDescription)")
             } else {
                 print("User has completed the authorization flow")
             }

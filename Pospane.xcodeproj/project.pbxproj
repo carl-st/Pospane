@@ -46,6 +46,8 @@
 		F9CCF1022067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1032067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9D1414E2076B05400667255 /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
+		F9DDFB11207FE1070037ECBC /* Sleeping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DDFB10207FE1070037ECBC /* Sleeping.plist */; };
+		F9DDFB12207FEA970037ECBC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DED0B5207D514E00202C4E /* Helpers.swift */; };
 		F9DED0B4207D469F00202C4E /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
 		F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DED0B5207D514E00202C4E /* Helpers.swift */; };
 /* End PBXBuildFile section */
@@ -164,6 +166,7 @@
 		F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIConstants.swift; path = Pospane/UIConstants.swift; sourceTree = SOURCE_ROOT; };
 		F9D1414D2076B05400667255 /* SleepSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSession.swift; sourceTree = "<group>"; };
+		F9DDFB10207FE1070037ECBC /* Sleeping.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Sleeping.plist; sourceTree = "<group>"; };
 		F9DED0B5207D514E00202C4E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -308,6 +311,7 @@
 				F930CA6620571D750062B2AC /* Interface.storyboard */,
 				F930CA6920571D750062B2AC /* Assets.xcassets */,
 				F930CA6B20571D750062B2AC /* Info.plist */,
+				F9DDFB10207FE1070037ECBC /* Sleeping.plist */,
 			);
 			path = PospaneWatch;
 			sourceTree = "<group>";
@@ -611,6 +615,7 @@
 			files = (
 				F930CA6A20571D750062B2AC /* Assets.xcassets in Resources */,
 				F930CA6820571D750062B2AC /* Interface.storyboard in Resources */,
+				F9DDFB11207FE1070037ECBC /* Sleeping.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,6 +929,7 @@
 				F930CA7A20571D750062B2AC /* NotificationController.swift in Sources */,
 				F94C6825207414AD003E9FCE /* AsleepTimeSetterInterfaceController.swift in Sources */,
 				F930CA7C20571D750062B2AC /* ComplicationController.swift in Sources */,
+				F9DDFB12207FEA970037ECBC /* Helpers.swift in Sources */,
 				F94C682120741404003E9FCE /* HistoryInterfaceController.swift in Sources */,
 				F930CA7820571D750062B2AC /* ExtensionDelegate.swift in Sources */,
 				F930CA7620571D750062B2AC /* InterfaceController.swift in Sources */,

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>removeDeferredSleepOptionDate</key>
+	<date>2018-04-12T18:49:16Z</date>
+	<key>Current Sleep Session</key>
+	<dict>
+		<key>isInProgress</key>
+		<false/>
+		<key>inBed</key>
+		<array/>
+		<key>asleep</key>
+		<array/>
+		<key>awake</key>
+		<array/>
+		<key>outOfBed</key>
+		<array/>
+	</dict>
+	<key>Previous Sleep Session</key>
+	<dict>
+		<key>isInProgress</key>
+		<false/>
+		<key>inBed</key>
+		<array/>
+		<key>asleep</key>
+		<array/>
+		<key>awake</key>
+		<array/>
+		<key>outOfBed</key>
+		<array/>
+	</dict>
+</dict>
+</plist>

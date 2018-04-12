@@ -24,6 +24,13 @@ class InterfaceController: WKInterfaceController {
     
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
     
+    override init() {
+        super.init()
+        checkPlist()
+        clearAllMenuItems()
+        currentSleepSession.isInProgress = isSleepSessionInProgress()
+    }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
 
@@ -46,8 +53,38 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    private func isSleepSessionInProgress() {
-//        let session = Utility.contentsOfCurrentSleepSession
+    private func checkPlist() {
+        let path = Bundle.main.path(forResource: "SavedSleepSession", ofType: "plist") // TODO: Add to constants file
+        if FileManager().fileExists(atPath: path!) {
+            return
+        }
+        let sleepingFilePath = Bundle.main.path(forResource: "Sleeping", ofType: "plist")
+        do {
+            try FileManager().copyItem(at: URL(fileURLWithPath: sleepingFilePath!), to: URL(fileURLWithPath: path!))
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func isSleepSessionInProgress() -> Bool {
+        return Helpers().contentsOfCurrentSleepSession().isInProgress!
+    }
+    
+    private func isUserAwake() -> Bool {
+        let inBed = currentSleepSession.inBed?.count
+        let awake = currentSleepSession.awake?.count
+        return awake! == inBed! && awake! > 0
+    }
+    
+    func writeCurrentSleepSessionToFile() {
+        let path = Helpers().getPathToSleepSessionFile()
+        let sleepSessionFile = NSMutableDictionary(contentsOfFile: path)
+        let currentSleepSessionDictionary = NSMutableDictionary(dictionary: sleepSessionFile?.object(forKey: "currentSleepSession") as! NSMutableDictionary)
+        currentSleepSessionDictionary.setObject(currentSleepSession.isInProgress ?? "", forKey: "isInProgress" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.inBed ?? "", forKey: "inBed" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.asleep ?? "", forKey: "asleep" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.awake ?? "", forKey: "awake" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.outOfBed ?? "", forKey: "outOfBed" as NSString)
     }
     
     // TODO: Extract to common

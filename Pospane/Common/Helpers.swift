@@ -19,4 +19,9 @@ class Helpers {
         }
         return SleepSession()
     }
+    
+    func getPathToSleepSessionFile() -> String {
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        return "\(documentsDirectory)/SavedSleepSession.plist"
+    }
 }

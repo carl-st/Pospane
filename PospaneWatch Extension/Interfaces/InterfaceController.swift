@@ -18,7 +18,7 @@ class InterfaceController: WKInterfaceController {
     
     private var currentSleepSession = SleepSession()
     private var proposedSleepStart: Date?
-    private var sleepSessionToSave: Dictionary<String, AnyObject>?
+    private var sleepSessionToSave: [String : Any] = [:]
     
     private let healthStore = HKHealthStore()
     
@@ -200,6 +200,93 @@ class InterfaceController: WKInterfaceController {
         
         healthStore.execute(query)
     }
+    
+    // Watch Connectivity Methods
+    
+    private func populateDictionaryWithSleepSessionData() -> [String : Any] {
+        let inBedData = NSKeyedArchiver.archivedData(withRootObject: currentSleepSession.inBed)
+        let asleepData = NSKeyedArchiver.archivedData(withRootObject: currentSleepSession.asleep)
+        let awakeData = NSKeyedArchiver.archivedData(withRootObject: currentSleepSession.awake)
+        let outOfBedData = NSKeyedArchiver.archivedData(withRootObject: currentSleepSession.outOfBed)
+        
+        var sleepSessionDictionary: [String : Any] = [:]
+        sleepSessionDictionary["request"] = "sendData"
+        sleepSessionDictionary["name"] = "session"
+        sleepSessionDictionary["creationDate"] = Date()
+        sleepSessionDictionary["inBedData"] = inBedData
+        sleepSessionDictionary["asleepData"] = asleepData
+        sleepSessionDictionary["awakeData"] = awakeData
+        sleepSessionDictionary["outOfBedData"] = outOfBedData
+        
+//        sleepSessionDictionary.setObject("sendData", forKey: "request" as NSString)
+//        sleepSessionDictionary.setObject("session", forKey: "name" as NSString)
+//        sleepSessionDictionary.setObject(Date(), forKey: "creationDate" as NSString)
+//        sleepSessionDictionary.setObject(inBedData, forKey: "inBed" as NSString)
+//        sleepSessionDictionary.setObject(asleepData, forKey: "asleep" as NSString)
+//        sleepSessionDictionary.setObject(awakeData, forKey: "awake" as NSString)
+//        sleepSessionDictionary.setObject(outOfBedData, forKey: "outOfBed" as NSString)
+        return sleepSessionDictionary
+    }
+    
+    private func sendSleepSessionDataToPhone() {
+        sleepSessionToSave = populateDictionaryWithSleepSessionData()
+        WCSession.default.sendMessage(sleepSessionToSave, replyHandler: { replyMessage in
+            print(replyMessage)
+            WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "interfaceController", context: [:] as AnyObject)])
+        }, errorHandler: { error in
+            print(error)
+        })
+    }
+    
+    // Menu Icons
+    
+    private func determineMenuIcons() {
+        let path = Helpers().getPathToSleepSessionFile()
+        let sleepSessionFile = NSMutableDictionary(contentsOfFile: path)
+        guard let removeDeferredSleepOptionDate = sleepSessionFile?.object(forKey: "removeDeferredSleepOptionDate" as? NSString) as? Date else { return }
+        
+        let activeSleepSession = isSleepSessionInProgress()
+        let userAwake = isUserAwake()
+        
+        print("isUserAwake: \(userAwake) ")
+        
+        if (Date() > removeDeferredSleepOptionDate && activeSleepSession && !userAwake) {
+            prepareMenuIconsForUserAsleepWithoutDeferredOption()
+        } else if (activeSleepSession && userAwake) {
+            prepareMenuIconsForUserAwake()
+        } else if activeSleepSession {
+            prepareMenuIconsForUserAsleep()
+        }
+    }
+    
+    private func prepareMenuIconsForUserAsleepWithoutDeferredOption() {
+        clearAllMenuItems()
+        addMenuItem(with: UIImage(), title: "End", action: #selector(sleepStopClicked))
+        addMenuItem(with: UIImage(), title: "Cancel", action: #selector(sleepCancelClicked))
+        addMenuItem(with: UIImage(), title: "Wake", action: #selector(wakeClicked))
+    }
+    
+    private func prepareMenuIconsForUserAsleep() {
+        clearAllMenuItems()
+        addMenuItem(with: UIImage(), title: "End", action: #selector(sleepClicked))
+        addMenuItem(with: UIImage(), title: "Cancel", action: #selector(sleepClicked))
+        addMenuItem(with: UIImage(), title: "Wake", action: #selector(sleepClicked))
+        addMenuItem(with: UIImage(), title: "Awake?", action: #selector(sleepDeferredClicked))
+    }
+    
+    private func prepareMenuIconsForUserAwake() {
+        clearAllMenuItems()
+        addMenuItem(with: UIImage(), title: "End", action: #selector(sleepStopClicked))
+        addMenuItem(with: UIImage(), title: "Cancel", action: #selector(sleepCancelClicked))
+        addMenuItem(with: UIImage(), title: "Back to sleep", action: #selector(sleepClicked))
+    }
+    
+    private func prepareMenuIconsForUserNotInSleepSession() {
+        clearAllMenuItems()
+        addMenuItem(with: UIImage(), title: "Sleep", action: #selector(sleepClicked))
+    }
+    
+    // private func prepareMenuIconsForDebugging()
 
     @IBAction func sleepClicked() {
         print("sleep")
@@ -210,15 +297,15 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func sleepDeferredClicked() {
-        
+        print("deferred")
     }
     
     @IBAction func sleepStopClicked() {
-        
+        print("stop")
     }
     
     @IBAction func sleepCancelClicked() {
-        
+        print("stop")
     }
     
 }

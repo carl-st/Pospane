@@ -10,7 +10,7 @@ import Foundation
 
 class SleepSession {
     
-    var isInProgress: Bool?
+    var isInProgress: Bool = false
     var name: String?
     var inBed: [Date]?
     var asleep: [Date]?
@@ -20,7 +20,8 @@ class SleepSession {
     convenience init(withSleepSession session: NSDictionary) {
         self.init()
         print(session)
-            self.isInProgress = session.object(forKey: "isInProgress") as? Bool
+        guard let isInProgress = session.object(forKey: "isInProgress") as? Bool else { return }
+            self.isInProgress = isInProgress
             self.name = session.object(forKey: "name") as? String
             self.inBed = session.object(forKey: "inBed") as? [Date]
             self.asleep = session.object(forKey: "asleep") as? [Date]

@@ -20,6 +20,12 @@ class InterfaceController: WKInterfaceController {
     private var proposedSleepStart: Date?
     private var sleepSessionToSave: [String : Any] = [:]
     
+    @IBOutlet var sleepSessionGroup: WKInterfaceGroup!
+    @IBOutlet var stillAwakeGroup: WKInterfaceGroup!
+    @IBOutlet var inBedGroup: WKInterfaceGroup!
+    @IBOutlet var awakeTimer: WKInterfaceLabel!
+    @IBOutlet var inBedTimer: WKInterfaceLabel!
+    
     private let healthStore = HKHealthStore()
     
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
@@ -54,20 +60,22 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func checkPlist() {
-        let path = Bundle.main.path(forResource: fileNames.savedSleepSession.rawValue, ofType: "plist") // TODO: Add to constants file
-        if FileManager().fileExists(atPath: path!) {
-            return
+        if let path = Bundle.main.path(forResource: fileNames.savedSleepSession.rawValue, ofType: "plist") {
+            if FileManager().fileExists(atPath: path) {
+                return
+            }
+            let sleepingFilePath = Bundle.main.path(forResource: fileNames.sleeping.rawValue, ofType: "plist")
+            do {
+                try FileManager().copyItem(at: URL(fileURLWithPath: sleepingFilePath!), to: URL(fileURLWithPath: path))
+            } catch {
+                print(error)
+            }
         }
-        let sleepingFilePath = Bundle.main.path(forResource: fileNames.sleeping.rawValue, ofType: "plist")
-        do {
-            try FileManager().copyItem(at: URL(fileURLWithPath: sleepingFilePath!), to: URL(fileURLWithPath: path!))
-        } catch {
-            print(error)
-        }
+
     }
     
     private func isSleepSessionInProgress() -> Bool {
-        return Helpers().contentsOfCurrentSleepSession().isInProgress!
+        return Helpers().contentsOfCurrentSleepSession().isInProgress
     }
     
     private func isUserAwake() -> Bool {
@@ -288,8 +296,25 @@ class InterfaceController: WKInterfaceController {
     
     // private func prepareMenuIconsForDebugging()
 
+    private func updateLabelsForStartedSleepSession() {
+        
+    }
+    
     @IBAction func sleepClicked() {
         print("sleep")
+        guard let awake = currentSleepSession.awake else { return }
+        if awake.count > 0 {
+            currentSleepSession.outOfBed?.append(awake[awake.count - 1])
+            // fade wake indicator
+            // cancel pending notification
+            // remove delivered notifications
+        }
+        
+        currentSleepSession.inBed?.append(Date())
+        currentSleepSession.asleep?.append(Date(timeInterval: 1, since: Date()))
+        currentSleepSession.isInProgress = true
+        
+        
     }
     
     @IBAction func wakeClicked() {

@@ -12,6 +12,8 @@
 		946A5F45A800897614397978 /* Pods_PospaneWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C49487CA1C60BE04FFBB9FF /* Pods_PospaneWatch_Extension.framework */; };
 		C4DE09FB332C1A6364816709 /* Pods_PospaneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F662546167969397F063E540 /* Pods_PospaneUITests.framework */; };
 		CD1FE994ACACB4A66655ABD1 /* Pods_PospaneWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9852B39F8C4F8637A529CCBE /* Pods_PospaneWatch.framework */; };
+		F919F3EC20B0A6F900C611D9 /* Sleeping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DDFB10207FE1070037ECBC /* Sleeping.plist */; };
+		F919F3ED20B0A7A800C611D9 /* Sleeping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DDFB10207FE1070037ECBC /* Sleeping.plist */; };
 		F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA2E20571B4B0062B2AC /* AppDelegate.swift */; };
 		F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3020571B4B0062B2AC /* SleepViewController.swift */; };
 		F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3220571B4B0062B2AC /* StatisticsViewController.swift */; };
@@ -592,6 +594,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F919F3ED20B0A7A800C611D9 /* Sleeping.plist in Resources */,
 				F930CA3B20571B4B0062B2AC /* LaunchScreen.storyboard in Resources */,
 				F930CA3820571B4B0062B2AC /* Assets.xcassets in Resources */,
 				F930CA3620571B4B0062B2AC /* Main.storyboard in Resources */,
@@ -628,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F930CA7E20571D750062B2AC /* Assets.xcassets in Resources */,
+				F919F3EC20B0A6F900C611D9 /* Sleeping.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

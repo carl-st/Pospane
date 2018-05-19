@@ -16,13 +16,13 @@
                     <items>
                         <group width="1" height="56" alignment="left" layout="vertical" id="brd-pX-cIU">
                             <items>
-                                <group width="1" alignment="left" id="jiB-dP-pxy">
+                                <group width="1" alignment="center" verticalAlignment="center" hidden="YES" id="jiB-dP-pxy">
                                     <items>
                                         <label alignment="left" text="STILL AWAKE" id="fOm-ds-eeT"/>
                                         <label alignment="left" text="1:23" id="M4L-20-vSz"/>
                                     </items>
                                 </group>
-                                <group width="1" alignment="center" verticalAlignment="center" id="rfK-yG-Neo">
+                                <group width="1" alignment="center" verticalAlignment="center" hidden="YES" id="rfK-yG-Neo">
                                     <items>
                                         <label alignment="left" text="IN BED" id="J9u-L7-IM8"/>
                                         <label width="59" height="18" alignment="left" text="1:32" id="ijG-Z6-5f4"/>
@@ -34,26 +34,13 @@
                             <fontDescription key="font" type="boldSystem" pointSize="36"/>
                         </label>
                     </items>
-                    <menu key="menu" id="zmW-bd-HEe">
-                        <items>
-                            <menuItem title="Sleep" icon="add" id="JjM-C3-chC">
-                                <connections>
-                                    <action selector="sleepClicked" destination="AgC-eL-Hgc" id="Gka-k9-xk5"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Wake" icon="accept" id="Fgp-Xk-8bD">
-                                <connections>
-                                    <action selector="wakeClicked" destination="AgC-eL-Hgc" id="BfW-UC-mNI"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
+                    <menu key="menu" id="zmW-bd-HEe"/>
                     <connections>
-                        <outlet property="awakeTimer" destination="M4L-20-vSz" id="8US-kc-Dsx"/>
                         <outlet property="inBedGroup" destination="rfK-yG-Neo" id="hFR-bx-Vbw"/>
                         <outlet property="inBedTimer" destination="ijG-Z6-5f4" id="V5n-8W-tnI"/>
                         <outlet property="sleepLabel" destination="Cjx-n4-1Pc" id="kB6-ag-u5a"/>
                         <outlet property="sleepSessionGroup" destination="brd-pX-cIU" id="J9d-io-yTA"/>
+                        <outlet property="sleepStartTimer" destination="M4L-20-vSz" id="hsA-Jy-mfT"/>
                         <outlet property="stillAwakeGroup" destination="jiB-dP-pxy" id="Cm5-PD-ZIM"/>
                         <segue destination="WLB-oU-SCy" kind="relationship" relationship="nextPage" id="HEJ-tz-NqK"/>
                     </connections>

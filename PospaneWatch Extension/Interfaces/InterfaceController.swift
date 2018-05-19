@@ -23,7 +23,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var sleepSessionGroup: WKInterfaceGroup!
     @IBOutlet var stillAwakeGroup: WKInterfaceGroup!
     @IBOutlet var inBedGroup: WKInterfaceGroup!
-    @IBOutlet var awakeTimer: WKInterfaceLabel!
+    @IBOutlet var sleepStartTimer: WKInterfaceLabel!
     @IBOutlet var inBedTimer: WKInterfaceLabel!
     
     private let healthStore = HKHealthStore()
@@ -35,27 +35,39 @@ class InterfaceController: WKInterfaceController {
         checkPlist()
         clearAllMenuItems()
         currentSleepSession.isInProgress = isSleepSessionInProgress()
+        
+        if currentSleepSession.isInProgress {
+            populateSleepSessionWithCurrentSessionData()
+            updateLabelsForStartedSleepSession()
+            determineMenuIcons()
+        } else {
+            updateLabelsForEndedSleepSession()
+            prepareMenuIconsForUserNotInSleepSession()
+        }
+        
     }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-
-        // Configure interface objects here.
     }
     
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        if WCSession.isSupported() {
+            // activate session
+        }
         
         let hasHKSleepDataAccess = healthStore.authorizationStatus(for: HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!)
         
         if hasHKSleepDataAccess == .notDetermined || hasHKSleepDataAccess == .sharingDenied {
             authorizeHealthKit()
         }
+        
+        determineMenuIcons()
     }
     
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
     
@@ -64,9 +76,16 @@ class InterfaceController: WKInterfaceController {
             if FileManager().fileExists(atPath: path) {
                 return
             }
-            let sleepingFilePath = Bundle.main.path(forResource: fileNames.sleeping.rawValue, ofType: "plist")
+        }
+        
+        let fileManager = FileManager.default
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        guard let documentsDirectory = paths.first else { return }
+        let targetPath = "\(documentsDirectory)/\(fileNames.savedSleepSession.rawValue)"
+        
+        if let sleepingFilePath = Bundle.main.path(forResource: fileNames.sleeping.rawValue, ofType: "plist") {
             do {
-                try FileManager().copyItem(at: URL(fileURLWithPath: sleepingFilePath!), to: URL(fileURLWithPath: path))
+                try fileManager.copyItem(at: URL(fileURLWithPath: sleepingFilePath), to: URL(fileURLWithPath: targetPath))
             } catch {
                 print(error)
             }
@@ -79,15 +98,31 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func isUserAwake() -> Bool {
-        let inBed = currentSleepSession.inBed?.count
-        let awake = currentSleepSession.awake?.count
-        return awake! == inBed! && awake! > 0
+        guard let inBed = currentSleepSession.inBed?.count else { return false }
+        guard let awake = currentSleepSession.awake?.count else { return false }
+        return awake == inBed && awake > 0
     }
     
-    func writeCurrentSleepSessionToFile() -> NSMutableDictionary {
+    private func populateSleepSessionWithCurrentSessionData() {
+        currentSleepSession = Helpers().contentsOfCurrentSleepSession()
+    }
+    
+    func writeRemoveDeferredSleepOptionDate() {
         let path = Helpers().getPathToSleepSessionFile()
         let sleepSessionFile = NSMutableDictionary(contentsOfFile: path)
-        let currentSleepSessionDictionary = NSMutableDictionary(dictionary: sleepSessionFile?.object(forKey: dictionaryKeys.currentSleep.rawValue) as! NSMutableDictionary)
+        let removeDeferredSleepOptionDate = Date.init(timeIntervalSinceNow: numbers.removeDeferredOptionTimer.rawValue)
+        
+        sleepSessionFile?.setObject(removeDeferredSleepOptionDate, forKey: "removeDeferredSleepOptionDate" as NSString)
+        
+        if let _ = sleepSessionFile?.write(toFile: path, atomically: true) {
+            print("Date to remove sleep deferred option sucessfully written to file.")
+        }
+    }
+    
+    private func writeCurrentSleepSessionToFile() {
+        let path = Helpers().getPathToSleepSessionFile()
+        let sleepSessionFile = NSMutableDictionary(contentsOfFile: path)
+        let currentSleepSessionDictionary = NSMutableDictionary(dictionary: sleepSessionFile?.object(forKey: dictionaryKeys.currentSleep.rawValue) as! NSDictionary)
         currentSleepSessionDictionary.setObject(currentSleepSession.isInProgress ?? "", forKey: "isInProgress" as NSString)
         currentSleepSessionDictionary.setObject(currentSleepSession.inBed ?? "", forKey: "inBed" as NSString)
         currentSleepSessionDictionary.setObject(currentSleepSession.asleep ?? "", forKey: "asleep" as NSString)
@@ -99,8 +134,6 @@ class InterfaceController: WKInterfaceController {
         if let _ = sleepSessionFile?.write(toFile: path, atomically: true) {
             print("file has been saved")
         }
-        
-        return currentSleepSessionDictionary
     }
     
     func writeCurrentSleepSessionToFileAndSaveAsPrevious() {
@@ -297,40 +330,117 @@ class InterfaceController: WKInterfaceController {
     // private func prepareMenuIconsForDebugging()
 
     private func updateLabelsForStartedSleepSession() {
+        let dateFormatter = Helpers().dateFormatterForTimeLabels()
+        sleepLabel.setHidden(true)
+        sleepSessionGroup.setHidden(false)
         
+        guard let inBed = currentSleepSession.inBed?.first else { return }
+        inBedTimer.setText(dateFormatter.string(from: inBed))
+        inBedGroup.setHidden(false)
     }
+    
+    private func updateLabelsForEndedSleepSession() {
+        sleepLabel.setHidden(false)
+        sleepSessionGroup.setHidden(true)
+        inBedGroup.setHidden(false)
+        stillAwakeGroup.setHidden(true)
+    }
+    
+    private func updateLabelsForDeferredSleepSession() {
+        let dateFormatter = Helpers().dateFormatterForTimeLabels()
+        sleepLabel.setHidden(true)
+        sleepSessionGroup.setHidden(false)
+        
+        guard let inBed = currentSleepSession.inBed?.first else { return }
+        guard let asleep = currentSleepSession.asleep?.last else { return }
+        inBedTimer.setText(dateFormatter.string(from: inBed))
+        sleepStartTimer.setText(dateFormatter.string(from: asleep))
+        inBedGroup.setHidden(false)
+        stillAwakeGroup.setHidden(false)
+    }
+    
+    private func presentProposedSleepTimeController() {
+        print("presentProposedSleepTimeController")
+    }
+    
+    private func clearAllSleepValues() {
+        currentSleepSession.inBed = []
+        currentSleepSession.asleep = []
+        currentSleepSession.awake = []
+        currentSleepSession.outOfBed = []
+        proposedSleepStart = nil
+    }
+    
+    // display wake indicator
     
     @IBAction func sleepClicked() {
         print("sleep")
-        guard let awake = currentSleepSession.awake else { return }
-        if awake.count > 0 {
-            currentSleepSession.outOfBed?.append(awake[awake.count - 1])
-            // fade wake indicator
-            // cancel pending notification
-            // remove delivered notifications
+        if let awake = currentSleepSession.awake {
+            if awake.count > 0 {
+                currentSleepSession.outOfBed?.append(awake[awake.count - 1])
+                // fade wake indicator
+                // cancel pending notification
+                // remove delivered notifications
+            }
         }
-        
+
         currentSleepSession.inBed?.append(Date())
         currentSleepSession.asleep?.append(Date(timeInterval: 1, since: Date()))
         currentSleepSession.isInProgress = true
         
+        updateLabelsForStartedSleepSession()
+        writeCurrentSleepSessionToFile()
         
+        prepareMenuIconsForUserAsleep()
+        
+        writeRemoveDeferredSleepOptionDate()
     }
     
     @IBAction func wakeClicked() {
         print("wake")
+        // display wake indicator
+        currentSleepSession.awake?.append(Date())
+        writeCurrentSleepSessionToFile()
+        // scheduleUserNotificationToEndSleepSession
+        prepareMenuIconsForUserAwake()
     }
     
     @IBAction func sleepDeferredClicked() {
         print("deferred")
+        guard var asleep = currentSleepSession.asleep else { return }
+        asleep[asleep.count - 1] = Date()
+        updateLabelsForDeferredSleepSession()
+        writeRemoveDeferredSleepOptionDate()
     }
     
     @IBAction func sleepStopClicked() {
         print("stop")
+        guard var outOfBed = currentSleepSession.outOfBed else { return }
+        guard var awake = currentSleepSession.asleep else { return }
+        // hideWakeIndicator
+        outOfBed.append(Date())
+        currentSleepSession.isInProgress = false
+        
+        if awake.count != outOfBed.count {
+            awake.append(Date(timeInterval: -1, since: Date()))
+        }
+        
+        writeCurrentSleepSessionToFile()
+        readHeartRateData()
+        // cancelPendingNotifications
+        // removeDeliveredNotifications
+        prepareMenuIconsForUserNotInSleepSession()
+        
     }
     
     @IBAction func sleepCancelClicked() {
         print("stop")
+        currentSleepSession.isInProgress = false
+        // hideWakeIndicator
+        clearAllSleepValues()
+        // removeDeliveredNotifications
+        prepareMenuIconsForUserNotInSleepSession()
+        writeCurrentSleepSessionToFile()
     }
     
 }

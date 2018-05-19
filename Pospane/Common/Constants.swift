@@ -9,11 +9,15 @@
 import Foundation
 
 public enum dictionaryKeys: NSString {
-    case currentSleep
-    case previousSleep
+    case currentSleep = "Current Sleep Session"
+    case previousSleep = "Previous Sleep Session"
 }
 
 public enum fileNames: String {
-    case savedSleepSession
-    case sleeping
+    case savedSleepSession = "SavedSleepSession"
+    case sleeping = "Sleeping"
+}
+
+public enum numbers: Double {
+    case removeDeferredOptionTimer = 7200
 }

@@ -21,7 +21,16 @@ class Helpers {
     }
     
     func getPathToSleepSessionFile() -> String {
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        return "\(documentsDirectory)/SavedSleepSession.plist"
+        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            return "\(documentsDirectory)/SavedSleepSession.plist"
+        }
+        return ""
+    }
+    
+    func dateFormatterForTimeLabels() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        return formatter
     }
 }

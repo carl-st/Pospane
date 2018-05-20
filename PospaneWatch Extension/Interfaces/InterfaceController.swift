@@ -309,9 +309,9 @@ class InterfaceController: WKInterfaceController {
     
     private func prepareMenuIconsForUserAsleep() {
         clearAllMenuItems()
-        addMenuItem(with: UIImage(), title: "End", action: #selector(sleepClicked))
-        addMenuItem(with: UIImage(), title: "Cancel", action: #selector(sleepClicked))
-        addMenuItem(with: UIImage(), title: "Wake", action: #selector(sleepClicked))
+        addMenuItem(with: UIImage(), title: "End", action: #selector(sleepStopClicked))
+        addMenuItem(with: UIImage(), title: "Cancel", action: #selector(sleepCancelClicked))
+        addMenuItem(with: UIImage(), title: "Wake", action: #selector(wakeClicked))
         addMenuItem(with: UIImage(), title: "Awake?", action: #selector(sleepDeferredClicked))
     }
     
@@ -434,7 +434,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func sleepCancelClicked() {
-        print("stop")
+        print("cancel")
         currentSleepSession.isInProgress = false
         // hideWakeIndicator
         clearAllSleepValues()

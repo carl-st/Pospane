@@ -10,6 +10,8 @@ import UIKit
 
 class HistoryViewController: UIViewController {
 
+    @IBOutlet var tableVIew: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black

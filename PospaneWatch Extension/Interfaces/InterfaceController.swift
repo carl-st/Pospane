@@ -98,8 +98,8 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func isUserAwake() -> Bool {
-        guard let inBed = currentSleepSession.inBed?.count else { return false }
-        guard let awake = currentSleepSession.awake?.count else { return false }
+        let inBed = currentSleepSession.inBed.count
+        let awake = currentSleepSession.awake.count
         return awake == inBed && awake > 0
     }
     
@@ -177,10 +177,10 @@ class InterfaceController: WKInterfaceController {
         let samples = NSMutableArray()
         
         guard let categoryType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else { return }
-        guard let awake = currentSleepSession.awake else { return }
-        guard let inBed = currentSleepSession.inBed else { return }
-        guard let asleep = currentSleepSession.asleep else { return }
-        guard let outOfBed = currentSleepSession.outOfBed else { return }
+        let awake = currentSleepSession.awake
+        let inBed = currentSleepSession.inBed
+        let asleep = currentSleepSession.asleep
+        let outOfBed = currentSleepSession.outOfBed
         
         for (index, _) in awake.enumerated() {
             if index == 0 {
@@ -212,7 +212,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func readHeartRateData() {
-        guard let asleep = currentSleepSession.asleep else { return }
+        let asleep = currentSleepSession.asleep
         guard let sampleStartDate = asleep.first else { return }
         let sampleEndDate = Date(timeInterval: 3600, since: sampleStartDate)
         
@@ -334,7 +334,7 @@ class InterfaceController: WKInterfaceController {
         sleepLabel.setHidden(true)
         sleepSessionGroup.setHidden(false)
         
-        guard let inBed = currentSleepSession.inBed?.first else { return }
+        guard let inBed = currentSleepSession.inBed.first else { return }
         inBedTimer.setText(dateFormatter.string(from: inBed))
         inBedGroup.setHidden(false)
     }
@@ -351,8 +351,8 @@ class InterfaceController: WKInterfaceController {
         sleepLabel.setHidden(true)
         sleepSessionGroup.setHidden(false)
         
-        guard let inBed = currentSleepSession.inBed?.first else { return }
-        guard let asleep = currentSleepSession.asleep?.last else { return }
+        guard let inBed = currentSleepSession.inBed.first else { return }
+        guard let asleep = currentSleepSession.asleep.last else { return }
         inBedTimer.setText(dateFormatter.string(from: inBed))
         sleepStartTimer.setText(dateFormatter.string(from: asleep))
         inBedGroup.setHidden(false)
@@ -375,17 +375,17 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func sleepClicked() {
         print("sleep")
-        if let awake = currentSleepSession.awake {
-            if awake.count > 0 {
-                currentSleepSession.outOfBed?.append(awake[awake.count - 1])
+        let awake = currentSleepSession.awake
+        if awake.count > 0 {
+            currentSleepSession.outOfBed.append(awake[awake.count - 1])
                 // fade wake indicator
                 // cancel pending notification
                 // remove delivered notifications
-            }
         }
 
-        currentSleepSession.inBed?.append(Date())
-        currentSleepSession.asleep?.append(Date(timeInterval: 1, since: Date()))
+
+        currentSleepSession.inBed.append(Date())
+        currentSleepSession.asleep.append(Date(timeInterval: 1, since: Date()))
         currentSleepSession.isInProgress = true
         
         updateLabelsForStartedSleepSession()
@@ -399,7 +399,7 @@ class InterfaceController: WKInterfaceController {
     @IBAction func wakeClicked() {
         print("wake")
         // display wake indicator
-        currentSleepSession.awake?.append(Date())
+        currentSleepSession.awake.append(Date())
         writeCurrentSleepSessionToFile()
         // scheduleUserNotificationToEndSleepSession
         prepareMenuIconsForUserAwake()
@@ -407,7 +407,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func sleepDeferredClicked() {
         print("deferred")
-        guard var asleep = currentSleepSession.asleep else { return }
+        var asleep = currentSleepSession.asleep
         asleep[asleep.count - 1] = Date()
         updateLabelsForDeferredSleepSession()
         writeRemoveDeferredSleepOptionDate()
@@ -415,8 +415,8 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func sleepStopClicked() {
         print("stop")
-        guard var outOfBed = currentSleepSession.outOfBed else { return }
-        guard var awake = currentSleepSession.asleep else { return }
+        var outOfBed = currentSleepSession.outOfBed
+        var awake = currentSleepSession.asleep
         // hideWakeIndicator
         outOfBed.append(Date())
         currentSleepSession.isInProgress = false

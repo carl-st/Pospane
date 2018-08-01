@@ -12,7 +12,7 @@ import HealthKit
 import Foundation
 import UserNotifications
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     @IBOutlet var sleepLabel: WKInterfaceLabel!
     
@@ -55,7 +55,8 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         
         if WCSession.isSupported() {
-            // activate session
+            self.session?.delegate = self
+            self.session?.activate()
         }
         
         let hasHKSleepDataAccess = healthStore.authorizationStatus(for: HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!)
@@ -118,6 +119,12 @@ class InterfaceController: WKInterfaceController {
             print("Date to remove sleep deferred option sucessfully written to file.")
         }
     }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    
     
     private func writeCurrentSleepSessionToFile() {
         let path = Helpers().getPathToSleepSessionFile()
@@ -233,7 +240,7 @@ class InterfaceController: WKInterfaceController {
                         self.proposedSleepStart = predictedSleep
                         sleepDetected = true
                     }
-                    
+                    print("heart rate results:", results)
 //                    presentProposedSleepTimeController()
                 }
             }
@@ -361,6 +368,13 @@ class InterfaceController: WKInterfaceController {
     
     private func presentProposedSleepTimeController() {
         print("presentProposedSleepTimeController")
+        let asleepContext: [String: Any] = ["delegate": self, "time": currentSleepSession.asleep.first ?? Date(), "maxSleepStart": currentSleepSession.awake.first ?? Date()]
+        let confirmContext: [String: Any] = ["delegate": self, "time": self.proposedSleepStart ?? Date()]
+        if self.proposedSleepStart == nil {
+            self.presentController(withName: "asleepInterfaceController", context: asleepContext)
+        } else {
+            self.presentController(withName: "confirmInterfaceController", context: confirmContext)
+        }
     }
     
     private func clearAllSleepValues() {

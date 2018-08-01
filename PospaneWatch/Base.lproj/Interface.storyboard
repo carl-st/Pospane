@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
     </dependencies>
     <scenes>
         <!--interfaceController-->
@@ -22,16 +22,16 @@
                                         <label alignment="left" text="1:23" id="M4L-20-vSz"/>
                                     </items>
                                 </group>
-                                <group width="1" alignment="center" verticalAlignment="center" hidden="YES" id="rfK-yG-Neo">
+                                <group width="1" alignment="center" verticalAlignment="center" id="rfK-yG-Neo">
                                     <items>
                                         <label alignment="left" text="IN BED" id="J9u-L7-IM8"/>
-                                        <label width="59" height="18" alignment="left" text="1:32" id="ijG-Z6-5f4"/>
+                                        <label height="18" alignment="left" text="1:32" id="ijG-Z6-5f4"/>
                                     </items>
                                 </group>
                             </items>
                         </group>
-                        <label width="1" height="131" alignment="center" verticalAlignment="center" text="Sleep" textAlignment="center" id="Cjx-n4-1Pc">
-                            <fontDescription key="font" type="boldSystem" pointSize="36"/>
+                        <label width="1" height="131" alignment="center" verticalAlignment="center" text="Force touch to sleep" textAlignment="center" numberOfLines="3" id="Cjx-n4-1Pc">
+                            <fontDescription key="font" type="boldSystem" pointSize="30"/>
                         </label>
                     </items>
                     <menu key="menu" id="zmW-bd-HEe"/>
@@ -48,24 +48,82 @@
             </objects>
             <point key="canvasLocation" x="220" y="363"/>
         </scene>
-        <!--History Interface Controller-->
+        <!--historyInterfaceController-->
         <scene sceneID="P80-wD-Ggi">
             <objects>
-                <controller id="WLB-oU-SCy" customClass="HistoryInterfaceController" customModule="PospaneWatch" customModuleProvider="target"/>
+                <controller identifier="historyInterfaceController" id="WLB-oU-SCy" customClass="HistoryInterfaceController" customModule="PospaneWatch" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="History" id="Zf3-wG-qs2"/>
+                        <table alignment="left" id="38b-1Q-gjl">
+                            <items>
+                                <tableRow id="v1I-Yo-Wtb">
+                                    <group key="rootItem" width="1" alignment="left" id="ZvE-vS-K23"/>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
-        <!--Confirm Interface Controller-->
+        <!--confirmInterfaceController-->
         <scene sceneID="NR5-iL-MFf">
             <objects>
-                <controller id="6Mh-18-A7I" customClass="ConfirmInterfaceController" customModule="PospaneWatch" customModuleProvider="target"/>
+                <controller identifier="confirmInterfaceController" id="6Mh-18-A7I" customClass="ConfirmInterfaceController" customModule="PospaneWatch" customModuleProvider="target">
+                    <items>
+                        <label width="1" alignment="left" text="Your heartrate indicated you fell asleep at:" textAlignment="center" numberOfLines="3" id="yG9-8o-43j" userLabel="Sleep Confirmation">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                        </label>
+                        <label alignment="center" text="22:45" textAlignment="center" id="9ka-ze-iJY" userLabel="Proposed Sleep">
+                            <fontDescription key="font" type="system" pointSize="30"/>
+                        </label>
+                        <button width="1" alignment="left" title="Confirm" id="QSB-hw-95e">
+                            <color key="backgroundColor" red="0.027450980619999999" green="0.23137255009999999" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="confirmClicked" destination="6Mh-18-A7I" id="oRl-yg-0lI"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Deny" id="mrU-je-762">
+                            <color key="backgroundColor" red="0.97647058819999999" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="denyClicked" destination="6Mh-18-A7I" id="qyh-xK-QWj"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="confirmMessageLabel" destination="yG9-8o-43j" id="WjW-95-pN4"/>
+                        <outlet property="timeLabel" destination="9ka-ze-iJY" id="Ezo-P3-HCp"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="713" y="345"/>
         </scene>
-        <!--Asleep Time Setter Interface Controller-->
+        <!--asleepInterfaceController-->
         <scene sceneID="wsx-f5-cf6">
             <objects>
-                <controller id="aFt-TW-NsZ" customClass="AsleepTimeSetterInterfaceController" customModule="PospaneWatch" customModuleProvider="target"/>
+                <controller identifier="asleepInterfaceController" id="aFt-TW-NsZ" customClass="AsleepTimeSetterInterfaceController" customModule="PospaneWatch" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="WF7-Fp-PZn">
+                            <items>
+                                <label width="1" alignment="left" text="Rotate Digital Crown to set the time you fell asleep" textAlignment="center" numberOfLines="3" id="kHC-Ij-esu" userLabel="Sleep Confirmation">
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="center" textAlignment="center" id="Zad-P3-JK1" userLabel="Proposed Sleep">
+                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                </label>
+                                <button width="1" alignment="left" verticalAlignment="bottom" title="Save" id="4gx-8G-dmt">
+                                    <color key="backgroundColor" red="0.027450980619999999" green="0.23137255009999999" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="saveClicked" destination="aFt-TW-NsZ" id="FAg-53-11D"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="timeLabel" destination="Zad-P3-JK1" id="gOp-2Y-zIK"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="968" y="345"/>
         </scene>
@@ -74,7 +132,7 @@
             <objects>
                 <notificationController id="YCC-NB-fut">
                     <items>
-                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                        <label alignment="left" verticalAlignment="center" text="Wake up!" id="IdU-wH-bcW"/>
                     </items>
                     <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
@@ -83,14 +141,14 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="220" y="706"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="PospaneWatch" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="468" y="706"/>
         </scene>
     </scenes>
 </document>

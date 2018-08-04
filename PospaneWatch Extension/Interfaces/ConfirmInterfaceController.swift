@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 protocol ConfirmInterfaceControllerDelegate {
-    func proposedSleepStartDecision(buttonValue: Int, sleepStartDate: Date)
+    func proposedSleepStartDecision(buttonValue: Int, sleepStartDate: Date?)
 }
 
 class ConfirmInterfaceController: WKInterfaceController {
@@ -45,12 +45,12 @@ class ConfirmInterfaceController: WKInterfaceController {
 
     @IBAction func confirmClicked() {
         self.dismiss()
-        self.delegate?.proposedSleepStartDecision(buttonValue: 0, sleepStartDate: Date()) // nil instead of date?
+        self.delegate?.proposedSleepStartDecision(buttonValue: 0, sleepStartDate: nil)
     }
     
     @IBAction func denyClicked() {
         self.dismiss()
-        self.delegate?.proposedSleepStartDecision(buttonValue: 1, sleepStartDate: Date())
+        self.delegate?.proposedSleepStartDecision(buttonValue: 1, sleepStartDate: nil)
     }
     
 }

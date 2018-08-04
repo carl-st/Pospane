@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -108,7 +108,7 @@
                                 <label width="1" alignment="left" text="Rotate Digital Crown to set the time you fell asleep" textAlignment="center" numberOfLines="3" id="kHC-Ij-esu" userLabel="Sleep Confirmation">
                                     <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
                                 </label>
-                                <label alignment="center" verticalAlignment="center" textAlignment="center" id="Zad-P3-JK1" userLabel="Proposed Sleep">
+                                <label width="124" height="50" alignment="center" verticalAlignment="center" text="22:45" textAlignment="center" id="Zad-P3-JK1" userLabel="Proposed Sleep">
                                     <fontDescription key="font" type="system" pointSize="30"/>
                                 </label>
                                 <button width="1" alignment="left" verticalAlignment="bottom" title="Save" id="4gx-8G-dmt">
@@ -125,7 +125,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="968" y="345"/>
+            <point key="canvasLocation" x="967.69230769230774" y="344.79487179487182"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

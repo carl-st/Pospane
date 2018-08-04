@@ -12,7 +12,7 @@ import HealthKit
 import Foundation
 import UserNotifications
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
+class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInterfaceControllerDelegate {
     
     @IBOutlet var sleepLabel: WKInterfaceLabel!
     
@@ -82,7 +82,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         let fileManager = FileManager.default
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         guard let documentsDirectory = paths.first else { return }
-        let targetPath = "\(documentsDirectory)/\(fileNames.savedSleepSession.rawValue)"
+        let targetPath = "\(documentsDirectory)/\(fileNames.savedSleepSession.rawValue).plist"
         
         if let sleepingFilePath = Bundle.main.path(forResource: fileNames.sleeping.rawValue, ofType: "plist") {
             do {
@@ -124,23 +124,23 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
     }
     
-    
-    
-    private func writeCurrentSleepSessionToFile() {
+    private func writeCurrentSleepSessionToFile() -> NSMutableDictionary {
         let path = Helpers().getPathToSleepSessionFile()
         let sleepSessionFile = NSMutableDictionary(contentsOfFile: path)
         let currentSleepSessionDictionary = NSMutableDictionary(dictionary: sleepSessionFile?.object(forKey: dictionaryKeys.currentSleep.rawValue) as! NSDictionary)
-        currentSleepSessionDictionary.setObject(currentSleepSession.isInProgress ?? "", forKey: "isInProgress" as NSString)
-        currentSleepSessionDictionary.setObject(currentSleepSession.inBed ?? "", forKey: "inBed" as NSString)
-        currentSleepSessionDictionary.setObject(currentSleepSession.asleep ?? "", forKey: "asleep" as NSString)
-        currentSleepSessionDictionary.setObject(currentSleepSession.awake ?? "", forKey: "awake" as NSString)
-        currentSleepSessionDictionary.setObject(currentSleepSession.outOfBed ?? "", forKey: "outOfBed" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.isInProgress, forKey: "isInProgress" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.inBed, forKey: "inBed" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.asleep, forKey: "asleep" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.awake, forKey: "awake" as NSString)
+        currentSleepSessionDictionary.setObject(currentSleepSession.outOfBed, forKey: "outOfBed" as NSString)
         
         sleepSessionFile?.setObject(currentSleepSessionDictionary, forKey: dictionaryKeys.currentSleep.rawValue)
-        
-        if let _ = sleepSessionFile?.write(toFile: path, atomically: true) {
+        print("[DEBUG] POST ADD CONTENTS: ", sleepSessionFile)
+        if (sleepSessionFile?.write(toFile: path, atomically: true))! {
             print("file has been saved")
         }
+
+        return currentSleepSessionDictionary
     }
     
     func writeCurrentSleepSessionToFileAndSaveAsPrevious() {
@@ -240,9 +240,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                         self.proposedSleepStart = predictedSleep
                         sleepDetected = true
                     }
-                    print("heart rate results:", results)
-//                    presentProposedSleepTimeController()
+
                 }
+                print("heart rate results:", results)
+                self.presentProposedSleepTimeController()
             }
         })
         
@@ -439,7 +440,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             awake.append(Date(timeInterval: -1, since: Date()))
         }
         
-        writeCurrentSleepSessionToFile()
+        let _ = writeCurrentSleepSessionToFile()
         readHeartRateData()
         // cancelPendingNotifications
         // removeDeliveredNotifications
@@ -457,4 +458,31 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         writeCurrentSleepSessionToFile()
     }
     
+    func proposedSleepStartDecision(buttonValue: Int, sleepStartDate: Date?) {
+        if let sleepStartDate = sleepStartDate {
+            self.currentSleepSession.asleep[0] = sleepStartDate
+            self.performSleepSessionCloseout()
+        } else if buttonValue == 0 {
+            let context: [String: Any] = ["delegate": self, "time": currentSleepSession.asleep.first ?? Date(), "maxSleepStart": currentSleepSession.awake.first ?? Date()]
+            self.presentController(withName: "asleepInterfaceController", context: context)
+        } else if buttonValue == 1 {
+            guard let proposedSleepStart = self.proposedSleepStart else { return }
+            self.currentSleepSession.asleep[0] = proposedSleepStart
+        }
+    }
+    
+    private func performSleepSessionCloseout () {
+        guard let session = self.session else { return }
+        if session.isReachable {
+            self.sendSleepSessionDataToPhone()
+        } else {
+            print("session unavailable")
+        }
+        
+        self.writeSleepSessionToHealthKit()
+        self.writeCurrentSleepSessionToFileAndSaveAsPrevious()
+        self.updateLabelsForEndedSleepSession()
+        
+        // reloadMilestoneInterfaceData
+    }
 }

@@ -33,4 +33,8 @@ class Helpers {
         formatter.timeStyle = .short
         return formatter
     }
+    
+    func compare(originalDate: Date, isLaterThanOrEqualTo otherDate: Date) -> Bool {
+        return originalDate.compare(otherDate) == .orderedAscending
+    }
 }

@@ -35,6 +35,10 @@ class Helpers {
     }
     
     func compare(originalDate: Date, isLaterThanOrEqualTo otherDate: Date) -> Bool {
+        return originalDate.compare(otherDate) != .orderedAscending
+    }
+    
+    func compare(originalDate: Date, isEarlierThan otherDate: Date) -> Bool {
         return originalDate.compare(otherDate) == .orderedAscending
     }
 }

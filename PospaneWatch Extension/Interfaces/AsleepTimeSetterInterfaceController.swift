@@ -26,6 +26,7 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
     private var scaleOfTimeLabel = 30.0
     private var scaleCount = 0.0
     
+    private let kScaleCountLowerLimit = 0.0
     private let kScaleCountUpperLimit = 11.0
     private let kDefaultFontSizeTimeLabel = 30.0;
     private let kDigitalCrownScrollMultiplier = 500.0;
@@ -35,8 +36,6 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
         
         WKInterfaceDevice.current().play(.success)
         self.crownSequencer.delegate = self
-        
-        
     }
     
     override func awake(withContext context: Any?) {
@@ -60,6 +59,7 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
 
     override func willActivate() {
         super.willActivate()
+        self.crownSequencer.focus()
     }
 
     override func didDeactivate() {
@@ -74,36 +74,43 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
     
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
         print("[DEBUG] rotation delta:", rotationalDelta)
-        
-        if inputDate == originalSleepStart && rotationalDelta <= 0.000001 && scaleCount != kScaleCountUpperLimit {
+        if inputDate == originalSleepStart && rotationalDelta <= 0.00001 && scaleCount != kScaleCountUpperLimit {
             inputDate = originalSleepStart
             scaleOfTimeLabel = scaleOfTimeLabel - 0.5
             scaleCount = scaleCount + 1
             if scaleCount == kScaleCountUpperLimit {
                 WKInterfaceDevice.current().play(.start)
             }
-            self.updateLabel()
-        } else if inputDate == maxSleepStart && rotationalDelta >= 0.000001 && scaleCount != kScaleCountUpperLimit {
+        } else if inputDate == maxSleepStart && rotationalDelta >= 0.00001 && scaleCount != kScaleCountUpperLimit {
             inputDate = maxSleepStart
             scaleOfTimeLabel = scaleOfTimeLabel - 0.5
             scaleCount = scaleCount + 1
             if scaleCount == kScaleCountUpperLimit {
                 WKInterfaceDevice.current().play(.start)
             }
-            self.updateLabel()
         } else if Helpers().compare(originalDate: inputDate, isLaterThanOrEqualTo: originalSleepStart) {
             inputDate = Date(timeInterval: rotationalDelta * kDigitalCrownScrollMultiplier, since: inputDate)
             scaleOfTimeLabel = kDefaultFontSizeTimeLabel
-            if Helpers().compare(originalDate: inputDate, isLaterThanOrEqualTo: maxSleepStart) {
+            if Helpers().compare(originalDate: inputDate, isEarlierThan: maxSleepStart) {
+                inputDate = originalSleepStart
+            } else if Helpers().compare(originalDate: inputDate, isLaterThanOrEqualTo: maxSleepStart) {
                 inputDate = maxSleepStart
             }
-            self.updateLabel()
         }
-        
+        self.updateLabel()
+    }
+    
+    func crownDidBecomeIdle(_ crownSequencer: WKCrownSequencer?) {
+        scaleOfTimeLabel = kDefaultFontSizeTimeLabel
+        scaleCount = kScaleCountLowerLimit
+        self.updateLabel()
     }
     
     private func updateLabel() {
         let formattedTime = labelTimeFormatter.string(from: inputDate)
+        print(inputDate)
+        print(originalSleepStart)
+        
         self.timeLabel.setText(formattedTime)
     }
 }

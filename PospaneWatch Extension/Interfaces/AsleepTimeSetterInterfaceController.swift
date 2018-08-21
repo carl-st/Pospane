@@ -53,6 +53,7 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
             self.maxSleepStart = maxSleepStart
             originalSleepStart = time
             inputDate = time
+            self.timeLabel.setText(labelTimeFormatter.string(from: inputDate))
         }
         
     }
@@ -81,7 +82,7 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
             if scaleCount == kScaleCountUpperLimit {
                 WKInterfaceDevice.current().play(.start)
             }
-        } else if inputDate == maxSleepStart && rotationalDelta >= 0.00001 && scaleCount != kScaleCountUpperLimit {
+        } else if inputDate == maxSleepStart && rotationalDelta >= -0.00001 && scaleCount != kScaleCountUpperLimit {
             inputDate = maxSleepStart
             scaleOfTimeLabel = scaleOfTimeLabel - 0.5
             scaleCount = scaleCount + 1
@@ -91,7 +92,7 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
         } else if Helpers().compare(originalDate: inputDate, isLaterThanOrEqualTo: originalSleepStart) {
             inputDate = Date(timeInterval: rotationalDelta * kDigitalCrownScrollMultiplier, since: inputDate)
             scaleOfTimeLabel = kDefaultFontSizeTimeLabel
-            if Helpers().compare(originalDate: inputDate, isEarlierThan: maxSleepStart) {
+            if Helpers().compare(originalDate: inputDate, isEarlierThan: originalSleepStart) {
                 inputDate = originalSleepStart
             } else if Helpers().compare(originalDate: inputDate, isLaterThanOrEqualTo: maxSleepStart) {
                 inputDate = maxSleepStart
@@ -111,6 +112,17 @@ class AsleepTimeSetterInterfaceController: WKInterfaceController, WKCrownDelegat
         print(inputDate)
         print(originalSleepStart)
         
-        self.timeLabel.setText(formattedTime)
+        // create attributed string
+//        let myString = "Swift Attributed String"
+//        let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.blue ]
+//        let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+//
+//        // set attributed text on a UILabel
+//        myLabel.attributedText = myAttrString
+        
+        let attributes = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: CGFloat(scaleOfTimeLabel) )]
+        let attributedString = NSAttributedString(string: formattedTime, attributes: attributes)
+//        self.timeLabel.setText(formattedTime)
+        self.timeLabel.setAttributedText(attributedString)
     }
 }

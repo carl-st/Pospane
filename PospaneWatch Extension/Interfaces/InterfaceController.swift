@@ -262,10 +262,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         sleepSessionDictionary["request"] = "sendData"
         sleepSessionDictionary["name"] = "session"
         sleepSessionDictionary["creationDate"] = Date()
-        sleepSessionDictionary["inBedData"] = inBedData
-        sleepSessionDictionary["asleepData"] = asleepData
-        sleepSessionDictionary["awakeData"] = awakeData
-        sleepSessionDictionary["outOfBedData"] = outOfBedData
+        sleepSessionDictionary["inBed"] = inBedData
+        sleepSessionDictionary["asleep"] = asleepData
+        sleepSessionDictionary["awake"] = awakeData
+        sleepSessionDictionary["outOfBed"] = outOfBedData
         
 //        sleepSessionDictionary.setObject("sendData", forKey: "request" as NSString)
 //        sleepSessionDictionary.setObject("session", forKey: "name" as NSString)
@@ -350,7 +350,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
     private func updateLabelsForEndedSleepSession() {
         sleepLabel.setHidden(false)
         sleepSessionGroup.setHidden(true)
-        inBedGroup.setHidden(false)
+        inBedGroup.setHidden(true)
         stillAwakeGroup.setHidden(true)
     }
     
@@ -435,7 +435,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         // hideWakeIndicator
         outOfBed.append(Date())
         currentSleepSession.isInProgress = false
-        
         if awake.count != outOfBed.count {
             awake.append(Date(timeInterval: -1, since: Date()))
         }
@@ -468,6 +467,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         } else if buttonValue == 1 {
             guard let proposedSleepStart = self.proposedSleepStart else { return }
             self.currentSleepSession.asleep[0] = proposedSleepStart
+            self.performSleepSessionCloseout()
         }
     }
     

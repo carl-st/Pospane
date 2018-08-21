@@ -30,7 +30,7 @@ class Helpers {
     func dateFormatterForTimeLabels() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .none
-        formatter.timeStyle = .short
+        formatter.timeStyle = .medium
         return formatter
     }
     

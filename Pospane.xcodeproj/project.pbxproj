@@ -36,6 +36,7 @@
 		F94C682120741404003E9FCE /* HistoryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C682020741404003E9FCE /* HistoryInterfaceController.swift */; };
 		F94C682320741479003E9FCE /* ConfirmInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C682220741479003E9FCE /* ConfirmInterfaceController.swift */; };
 		F94C6825207414AD003E9FCE /* AsleepTimeSetterInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C6824207414AD003E9FCE /* AsleepTimeSetterInterfaceController.swift */; };
+		F950B8A52131C25200A4DB7A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950B8A42131C25200A4DB7A /* HistoryTableViewCell.swift */; };
 		F964002520867347009BBA3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964002420867347009BBA3C /* Constants.swift */; };
 		F964002620867371009BBA3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964002420867347009BBA3C /* Constants.swift */; };
 		F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98B863E2061A0B80087DB36 /* HealthKit.framework */; };
@@ -161,6 +162,7 @@
 		F94C682020741404003E9FCE /* HistoryInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInterfaceController.swift; sourceTree = "<group>"; };
 		F94C682220741479003E9FCE /* ConfirmInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmInterfaceController.swift; sourceTree = "<group>"; };
 		F94C6824207414AD003E9FCE /* AsleepTimeSetterInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsleepTimeSetterInterfaceController.swift; sourceTree = "<group>"; };
+		F950B8A42131C25200A4DB7A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		F964002420867347009BBA3C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F98B863E2061A0B80087DB36 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedOnbardingViewController.swift; sourceTree = "<group>"; };
@@ -355,6 +357,14 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
+		F950B8A12131C1E100A4DB7A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F950B8A42131C25200A4DB7A /* HistoryTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F9A7884E2067E6A000513B1A /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +409,7 @@
 		F9CCF1152067C339001D90D2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F950B8A12131C1E100A4DB7A /* Cells */,
 				F930CA3020571B4B0062B2AC /* SleepViewController.swift */,
 				F930CA3220571B4B0062B2AC /* StatisticsViewController.swift */,
 				F94C681D2074094A003E9FCE /* HistoryViewController.swift */,
@@ -905,6 +916,7 @@
 				F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */,
 				F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */,
 				F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */,
+				F950B8A52131C25200A4DB7A /* HistoryTableViewCell.swift in Sources */,
 				F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */,
 				F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */,
 				F964002520867347009BBA3C /* Constants.swift in Sources */,

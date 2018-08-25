@@ -29,6 +29,12 @@ class Helpers {
     
     func dateFormatterForTimeLabels() -> DateFormatter {
         let formatter = DateFormatter()
+        formatter.date(from: "EEE, MMMM d")
+        return formatter
+    }
+    
+    func dateFormatterForCellLabels() -> DateFormatter {
+        let formatter = DateFormatter()
         formatter.dateStyle = .none
         formatter.timeStyle = .medium
         return formatter

@@ -22,3 +22,7 @@ public enum InterfaceControllerStoryBoardIdentifier: String {
     case confirmInterfaceController
     case asleepInterfaceController
 }
+
+public enum TableViewCellReuseIdentifier : String {
+    case HistoryTableViewCell
+}

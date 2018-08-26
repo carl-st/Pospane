@@ -11,12 +11,15 @@ import UIKit
 class GetStartedOnbardingViewController: UIViewController {
 
     @IBOutlet var getStartedLabel: UILabel!
+    let defaults: UserDefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getStartedLabel.setFAIcon(icon: .FACheckCircleO, iconSize: 200)
     }
     
     @IBAction func getStartedClicked(_ sender: Any) {
+        defaults.set(true, forKey: "Onboarded")
         self.performSegue(withIdentifier: SegueIdentifier.showMain.rawValue, sender: self)
     }
     

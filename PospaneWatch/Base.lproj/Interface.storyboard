@@ -24,7 +24,7 @@
                                 </group>
                                 <group width="1" alignment="center" verticalAlignment="center" id="rfK-yG-Neo">
                                     <items>
-                                        <label alignment="left" text="IN BED" id="J9u-L7-IM8"/>
+                                        <label alignment="left" text="IN BED SINCE:" id="J9u-L7-IM8"/>
                                         <label height="18" alignment="left" text="1:32" id="ijG-Z6-5f4"/>
                                     </items>
                                 </group>

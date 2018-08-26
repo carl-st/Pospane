@@ -12,17 +12,21 @@ import WatchConnectivity
 
 class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     @IBOutlet var tableView: UITableView!
-    var objectToSave = Session()
+    var objectToSave: Session?
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
-    private let persistentContainer = NSPersistentContainer(name: "Session")
-    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Session> = {
-        let request: NSFetchRequest<Session> = Session.fetchRequest()
+        let request = NSFetchRequest<Session>(entityName: "Session")
         let creationDateSort = NSSortDescriptor(key: "creationDate", ascending: false)
         request.sortDescriptors = [creationDateSort]
         
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: "sectionByMonthAndYearUsingCreationDate", cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
         fetchedResultsController.delegate = self
         return fetchedResultsController
     }()
@@ -30,12 +34,18 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
+        print("Session: \(session)")
         session?.delegate = self
         session?.activate()
+        print("fetchedResultsCntroller: ", fetchedResultsController.fetchedObjects)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("fetchedResultsCntroller: ", fetchedResultsController.fetchedObjects)
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("[DEBUG] WatchConnectivity Session state: \(activationState)")
+        print("[DEBUG] WatchConnectivity Session state: \(activationState.rawValue)")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
@@ -45,9 +55,8 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
     func sessionDidDeactivate(_ session: WCSession) {
         
     }
-    
+
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         
         guard let request = message["request"] as? String else { return }
@@ -60,16 +69,16 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
             print("[DEBUG] Received sleep session data from Apple Watch app. Saving in progess.");
             //                    self.objectToSave = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:[self managedObjectContext]];
             let entity = NSEntityDescription.entity(forEntityName: "Session", in: managedContext)!
-            self.objectToSave = NSManagedObject(entity: entity, insertInto: managedContext) as! Session
-            self.objectToSave.name = message["name"] as? String
-            self.objectToSave.creationDate = message["creationDate"] as? Date
-            self.objectToSave.inBed = message["inBed"] as? Data
-            self.objectToSave.asleep = message["asleep"] as? Data
-            self.objectToSave.awake = message["awake"] as? Data
-            self.objectToSave.outOfBed = message["outOfBed"] as? Data
+            if let objectToSave = NSManagedObject(entity: entity, insertInto: managedContext) as? Session {
+                objectToSave.name = message["name"] as? String
+                objectToSave.creationDate = message["creationDate"] as? Date
+                objectToSave.inBed = message["inBed"] as? Data
+                objectToSave.asleep = message["asleep"] as? Data
+                objectToSave.awake = message["awake"] as? Data
+                objectToSave.outOfBed = message["outOfBed"] as? Data
+            }
             
             // notification
-            
             do {
                 try managedContext.save()
                 replyHandler(["success" : true])

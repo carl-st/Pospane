@@ -12,7 +12,7 @@ import HealthKit
 import Foundation
 import UserNotifications
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInterfaceControllerDelegate {
+class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInterfaceControllerDelegate, AsleepTimeSetterInterfaceControllerDelegate {
     
     @IBOutlet var sleepLabel: WKInterfaceLabel!
     
@@ -415,28 +415,25 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         print("wake")
         // display wake indicator
         currentSleepSession.awake.append(Date())
-        writeCurrentSleepSessionToFile()
+        _ = writeCurrentSleepSessionToFile()
         // scheduleUserNotificationToEndSleepSession
         prepareMenuIconsForUserAwake()
     }
     
     @IBAction func sleepDeferredClicked() {
         print("deferred")
-        var asleep = currentSleepSession.asleep
-        asleep[asleep.count - 1] = Date()
+        currentSleepSession.asleep[currentSleepSession.asleep.count - 1] = Date()
         updateLabelsForDeferredSleepSession()
         writeRemoveDeferredSleepOptionDate()
     }
     
     @IBAction func sleepStopClicked() {
         print("stop")
-        var outOfBed = currentSleepSession.outOfBed
-        var awake = currentSleepSession.asleep
         // hideWakeIndicator
-        outOfBed.append(Date())
+        currentSleepSession.outOfBed.append(Date())
         currentSleepSession.isInProgress = false
-        if awake.count != outOfBed.count {
-            awake.append(Date(timeInterval: -1, since: Date()))
+        if currentSleepSession.awake.count != currentSleepSession.outOfBed.count {
+            currentSleepSession.awake.append(Date(timeInterval: -1, since: Date()))
         }
         
         let _ = writeCurrentSleepSessionToFile()

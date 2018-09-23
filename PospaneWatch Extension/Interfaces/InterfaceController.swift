@@ -42,7 +42,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
             determineMenuIcons()
         } else {
             updateLabelsForEndedSleepSession()
-            prepareMenuIconsForUserNotInSleepSession()
+//            prepareMenuIconsForUserNotInSleepSession()
+            prepareMenuIconsForDebugging()
         }
         
     }
@@ -266,14 +267,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         sleepSessionDictionary["asleep"] = asleepData
         sleepSessionDictionary["awake"] = awakeData
         sleepSessionDictionary["outOfBed"] = outOfBedData
-        
-//        sleepSessionDictionary.setObject("sendData", forKey: "request" as NSString)
-//        sleepSessionDictionary.setObject("session", forKey: "name" as NSString)
-//        sleepSessionDictionary.setObject(Date(), forKey: "creationDate" as NSString)
-//        sleepSessionDictionary.setObject(inBedData, forKey: "inBed" as NSString)
-//        sleepSessionDictionary.setObject(asleepData, forKey: "asleep" as NSString)
-//        sleepSessionDictionary.setObject(awakeData, forKey: "awake" as NSString)
-//        sleepSessionDictionary.setObject(outOfBedData, forKey: "outOfBed" as NSString)
         return sleepSessionDictionary
     }
     
@@ -285,6 +278,60 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         }, errorHandler: { error in
             print(error)
         })
+    }
+    
+    @objc private func manuallySendTestDataToiOS() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd G 'at' HH:mm:ss zzz"
+        
+        guard let inBedStart = formatter.date(from: "2018.09.22 AD at 00:05:00 EST") else { return }
+        guard let asleepStart = formatter.date(from: "2018.09.22 AD at 00:25:00 EST") else { return }
+        guard let asleepStop = formatter.date(from: "2018.09.22 AD at 06:05:00 EST") else { return }
+        guard let awakeStop = formatter.date(from: "2018.09.22 AD at 07:05:00 EST") else { return }
+        
+        currentSleepSession.inBed.append(inBedStart)
+        currentSleepSession.asleep.append(asleepStart)
+        currentSleepSession.awake.append(asleepStop)
+        currentSleepSession.outOfBed.append(awakeStop)
+        
+        sleepSessionToSave = populateDictionaryWithSleepSessionData()
+        WCSession.default.sendMessage(sleepSessionToSave, replyHandler: { replyMessage in
+            print(replyMessage)
+            WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "interfaceController", context: [:] as AnyObject)])
+        }, errorHandler: { error in
+            print(error)
+        })
+        self.populateHRData(from: inBedStart, to: awakeStop, rangingFrom: 51.0, to: 98.0)
+        
+    }
+    
+    private func populateHRData(from startDate: Date, to endDate: Date, rangingFrom minHR: Double, to maxHR: Double) {
+        var x = 0.0
+        var mutableStartDate = startDate
+        var arrayToSave: [HKQuantitySample] = []
+        while Helpers().compare(originalDate: mutableStartDate, isEarlierThan: endDate) {
+            let randomDouble = Double.random(in: minHR ..< maxHR)
+            guard let sampleType = HKSampleType.quantityType(forIdentifier: .heartRate) else { break }
+            let hr = HKUnit(from: "count/min")
+            let quantity = HKQuantity(unit: hr, doubleValue: randomDouble)
+            let nextStartDate = mutableStartDate.addingTimeInterval(1.0 + (300.0 * x))
+            let nextEndDate = mutableStartDate.addingTimeInterval(3.0 + (300.0 * x))
+            let quantitySample = HKQuantitySample(type: sampleType, quantity: quantity, start: nextStartDate, end: nextEndDate)
+            arrayToSave.append(quantitySample)
+            x = x + 1
+            mutableStartDate = mutableStartDate.addingTimeInterval(300.0)
+        }
+        
+        self.healthStore.save(arrayToSave, withCompletion: { (success, error) in
+            if (!success) {
+                print(error)
+            } else {
+                print(arrayToSave)
+            }
+        })
+        
+        
+        
     }
     
     // Menu Icons
@@ -335,7 +382,11 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         addMenuItem(with: UIImage(), title: "Sleep", action: #selector(sleepClicked))
     }
     
-    // private func prepareMenuIconsForDebugging()
+    private func prepareMenuIconsForDebugging() {
+        clearAllMenuItems()
+        addMenuItem(with: UIImage(), title: "Sleep", action: #selector(sleepClicked))
+        addMenuItem(with: UIImage(), title: "Populate test data", action: #selector(manuallySendTestDataToiOS))
+    }
 
     private func updateLabelsForStartedSleepSession() {
         let dateFormatter = Helpers().dateFormatterForTimeLabels()

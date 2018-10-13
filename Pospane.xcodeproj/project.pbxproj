@@ -51,6 +51,7 @@
 		F9CCF1022067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9CCF1032067BB48001D90D2 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */; };
 		F9D1414E2076B05400667255 /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
+		F9D7F4BC215AC7D60030BD3C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D7F4BB215AC7D60030BD3C /* Service.swift */; };
 		F9DDFB11207FE1070037ECBC /* Sleeping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DDFB10207FE1070037ECBC /* Sleeping.plist */; };
 		F9DDFB12207FEA970037ECBC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DED0B5207D514E00202C4E /* Helpers.swift */; };
 		F9DED0B4207D469F00202C4E /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
@@ -173,6 +174,7 @@
 		F9CCF0EE2067B38E001D90D2 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIConstants.swift; path = Pospane/UIConstants.swift; sourceTree = SOURCE_ROOT; };
 		F9D1414D2076B05400667255 /* SleepSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSession.swift; sourceTree = "<group>"; };
+		F9D7F4BB215AC7D60030BD3C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F9DDFB10207FE1070037ECBC /* Sleeping.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Sleeping.plist; sourceTree = "<group>"; };
 		F9DED0B5207D514E00202C4E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,6 +395,7 @@
 				F9CCF0FF2067BB48001D90D2 /* UIConstants.swift */,
 				F9DED0B5207D514E00202C4E /* Helpers.swift */,
 				F964002420867347009BBA3C /* Constants.swift */,
+				F9D7F4BB215AC7D60030BD3C /* Service.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -438,7 +441,6 @@
 				F930CA2920571B4B0062B2AC /* Resources */,
 				F930CA8B20571D750062B2AC /* Embed Watch Content */,
 				739443D59B4119C6933401E2 /* [CP] Embed Pods Frameworks */,
-				707E1A9D7BCF1B99F6B7CB44 /* [CP] Copy Pods Resources */,
 				F93E570420598164000BFFA0 /* SwiftLint */,
 			);
 			buildRules = (
@@ -459,8 +461,6 @@
 				F930CA3D20571B4B0062B2AC /* Sources */,
 				F930CA3E20571B4B0062B2AC /* Frameworks */,
 				F930CA3F20571B4B0062B2AC /* Resources */,
-				414402A99B4B6DB8C238D261 /* [CP] Embed Pods Frameworks */,
-				477EC0DCE573AFD17422ACC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -480,8 +480,6 @@
 				F930CA4820571B4B0062B2AC /* Sources */,
 				F930CA4920571B4B0062B2AC /* Frameworks */,
 				F930CA4A20571B4B0062B2AC /* Resources */,
-				195B7BCCE1AABEA60FE8FCD2 /* [CP] Embed Pods Frameworks */,
-				6B5FF28544597BD69260AF8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,7 +499,6 @@
 				F930CA6220571D750062B2AC /* Resources */,
 				F930CA8920571D750062B2AC /* Embed App Extensions */,
 				467F767AF8D20F0DF644DF5C /* Frameworks */,
-				4261485164AEEC23C1A4877F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -521,8 +518,6 @@
 				F930CA6C20571D750062B2AC /* Sources */,
 				F930CA6D20571D750062B2AC /* Frameworks */,
 				F930CA6E20571D750062B2AC /* Resources */,
-				9B1265E07F4CD2EBA55B22B3 /* [CP] Embed Pods Frameworks */,
-				39BE54627C5D684AC7FB19D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -649,81 +644,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		195B7BCCE1AABEA60FE8FCD2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		39BE54627C5D684AC7FB19D2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		414402A99B4B6DB8C238D261 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4261485164AEEC23C1A4877F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		477EC0DCE573AFD17422ACC8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneTests/Pods-PospaneTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		59DCB1C5B31421A1E7CD61CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -760,36 +680,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6B5FF28544597BD69260AF8C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneUITests/Pods-PospaneUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		707E1A9D7BCF1B99F6B7CB44 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pospane/Pods-Pospane-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		739443D59B4119C6933401E2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -797,12 +687,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pospane/Pods-Pospane-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AzureIoTHubClient/AzureIoTHubClient.framework",
+				"${BUILT_PRODUCTS_DIR}/AzureIoTUtility/AzureIoTUtility.framework",
+				"${BUILT_PRODUCTS_DIR}/AzureIoTuAmqp/AzureIoTuAmqp.framework",
+				"${BUILT_PRODUCTS_DIR}/AzureIoTuMqtt/AzureIoTuMqtt.framework",
 				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SIAlertView/SIAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AzureIoTHubClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AzureIoTUtility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AzureIoTuAmqp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AzureIoTuMqtt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SIAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
@@ -846,26 +744,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9B1265E07F4CD2EBA55B22B3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SIAlertView/SIAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SIAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PospaneWatch Extension/Pods-PospaneWatch Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AFC86357BC090A686B93C6FE /* [CP] Check Pods Manifest.lock */ = {
@@ -916,6 +794,7 @@
 				F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */,
 				F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */,
 				F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */,
+				F9D7F4BC215AC7D60030BD3C /* Service.swift in Sources */,
 				F950B8A52131C25200A4DB7A /* HistoryTableViewCell.swift in Sources */,
 				F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */,
 				F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */,

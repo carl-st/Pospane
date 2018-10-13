@@ -14,6 +14,12 @@ platform :ios, ' 11.0'
   pod 'SIAlertView'
   pod 'TPKeyboardAvoiding', '~> 1.3'
   pod 'Font-Awesome-Swift', '~> 1.7.2'
+  
+  # Pods for Azure IoT Hub
+  pod 'AzureIoTUtility'
+  pod 'AzureIoTuMqtt'
+  pod 'AzureIoTuAmqp'
+  pod 'AzureIoTHubClient'
   sharedPods
 
   target 'PospaneTests' do
@@ -32,6 +38,7 @@ target 'PospaneWatch' do
 platform :watchos, '4.0'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+  # Pods for Azure IoT Hub
 
   # Pods for PospaneWatch
   sharedPods

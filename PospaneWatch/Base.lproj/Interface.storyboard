@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14113" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14033"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
     </dependencies>
     <scenes>
         <!--interfaceController-->
@@ -14,7 +14,7 @@
             <objects>
                 <controller identifier="interfaceController" animationDuration="2" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PospaneWatch" customModuleProvider="target">
                     <items>
-                        <group width="1" height="56" alignment="left" layout="vertical" id="brd-pX-cIU">
+                        <group width="1" height="26" alignment="left" layout="vertical" id="brd-pX-cIU">
                             <items>
                                 <group width="1" alignment="center" verticalAlignment="center" hidden="YES" id="jiB-dP-pxy">
                                     <items>
@@ -33,9 +33,21 @@
                         <label width="1" height="131" alignment="center" verticalAlignment="center" text="Force touch to sleep" textAlignment="center" numberOfLines="3" id="Cjx-n4-1Pc">
                             <fontDescription key="font" type="boldSystem" pointSize="30"/>
                         </label>
+                        <button width="1" alignment="left" title="Beat" id="aBW-5E-H2t">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.97647058819999999" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="beatButtonTapped" destination="AgC-eL-Hgc" id="zdi-nh-I4q"/>
+                            </connections>
+                        </button>
+                        <label width="136" height="23" alignment="left" text="HR: 59 RR: 1016" textAlignment="center" id="WEW-u6-LJt">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
                     </items>
                     <menu key="menu" id="zmW-bd-HEe"/>
                     <connections>
+                        <outlet property="beatButton" destination="aBW-5E-H2t" id="fgN-yc-zXL"/>
+                        <outlet property="heartRateLabel" destination="WEW-u6-LJt" id="bgI-Dz-60x"/>
                         <outlet property="inBedGroup" destination="rfK-yG-Neo" id="hFR-bx-Vbw"/>
                         <outlet property="inBedTimer" destination="ijG-Z6-5f4" id="V5n-8W-tnI"/>
                         <outlet property="sleepLabel" destination="Cjx-n4-1Pc" id="kB6-ag-u5a"/>
@@ -46,7 +58,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="363"/>
+            <point key="canvasLocation" x="219.69230769230771" y="350.89743589743591"/>
         </scene>
         <!--historyInterfaceController-->
         <scene sceneID="P80-wD-Ggi">
@@ -72,7 +84,7 @@
                 <controller identifier="confirmInterfaceController" id="6Mh-18-A7I" customClass="ConfirmInterfaceController" customModule="PospaneWatch" customModuleProvider="target">
                     <items>
                         <label width="1" alignment="left" text="Your heartrate indicated you fell asleep at:" textAlignment="center" numberOfLines="3" id="yG9-8o-43j" userLabel="Sleep Confirmation">
-                            <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <label alignment="center" text="22:45" textAlignment="center" id="9ka-ze-iJY" userLabel="Proposed Sleep">
                             <fontDescription key="font" type="system" pointSize="30"/>

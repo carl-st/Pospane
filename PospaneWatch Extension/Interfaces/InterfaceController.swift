@@ -112,7 +112,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
     }
     
     @IBAction func beatButtonTapped() {
-        let heartRate = Double.random(in: 51 ..< 60)
+        let heartRate = Double.random(in: 58 ..< 60)
         let rr = 60 / heartRate * 1000
         heartRateLabel.setText(String(format: "HR:%.0f RR:%.0f", heartRate, rr))
         sendCurrentHRToPhone(hr: heartRate)

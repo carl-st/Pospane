@@ -12,7 +12,7 @@ import AzureIoTHubClient
 class Service {
     static let sharedInstance = Service()
     //Put you connection string here
-    private let connectionString = "HostName=Pospane-Hub.azure-devices.net;DeviceId=Pospane-iOS;SharedAccessKey=sMK/XeRIxzRVd3y04bGNQeK9PvmnhgEt1iCN10URrmY="
+    private let connectionString = "HostName=Pospane.azure-devices.net;DeviceId=Pospane-iOS;SharedAccessKey=Qb5fitcNMka/NpNdjvvPv9v9C+UGpnDwHOu+/tzH4l8="
     
     // Select your protocol of choice: MQTT_Protocol, AMQP_Protocol or HTTP_Protocol
     // Note: HTTP_Protocol is not currently supported
@@ -51,7 +51,8 @@ class Service {
     /// Sends a message to the IoT hub
     @objc func sendMessage(rr: Double) {
 
-        let data: [String: String] = ["rr": String(format: "%.0f", rr)]
+//        let data: [String: String] = ["rr": String(format: "%.0f", rr)]
+        let data = String(format: "{\"rr\": %.0f}", rr)
 //        updateTelem()
         var messageString = data.description
         // This the message

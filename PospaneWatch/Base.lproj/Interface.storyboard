@@ -40,7 +40,7 @@
                                 <action selector="beatButtonTapped" destination="AgC-eL-Hgc" id="zdi-nh-I4q"/>
                             </connections>
                         </button>
-                        <label width="136" height="23" alignment="left" text="HR: 59 RR: 1016" textAlignment="center" id="WEW-u6-LJt">
+                        <label width="136" height="23" alignment="left" text="HR: -- RR: --" textAlignment="center" id="WEW-u6-LJt">
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </label>
                     </items>

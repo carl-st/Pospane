@@ -25,7 +25,7 @@ class SleepViewController: UIViewController, WCSessionDelegate {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
         service = Service.sharedInstance
-        sleepButton.setFAIcon(icon: .FAPowerOff, iconSize: 200, forState: .normal)
+        sleepButton.setFAIcon(icon: .FAMoonO, iconSize: 200, forState: .normal)
         sleepButton.layer.cornerRadius = 4.0
         session?.delegate = self
         session?.activate()

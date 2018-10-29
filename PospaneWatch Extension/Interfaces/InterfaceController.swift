@@ -12,14 +12,14 @@ import HealthKit
 import Foundation
 import UserNotifications
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInterfaceControllerDelegate, AsleepTimeSetterInterfaceControllerDelegate {
+class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInterfaceControllerDelegate, AsleepTimeSetterInterfaceControllerDelegate, HKWorkoutSessionDelegate {
     
     @IBOutlet var sleepLabel: WKInterfaceLabel!
     
     private var currentSleepSession = SleepSession()
     private var proposedSleepStart: Date?
     private var sleepSessionToSave: [String : Any] = [:]
-    private var heartRateQuery: HKObserverQuery?
+    private var heartRateQuery: HKQuery?
     
     @IBOutlet var sleepSessionGroup: WKInterfaceGroup!
     @IBOutlet var stillAwakeGroup: WKInterfaceGroup!
@@ -31,6 +31,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
     
     private let healthStore = HKHealthStore()
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
+    private let heartRateUnit = HKUnit(from: "count/min")
+    private var workoutSession: HKWorkoutSession?
     
     override init() {
         super.init()
@@ -228,91 +230,91 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         })
     }
     
-    public func subscribeToHeartBeatChanges() {
-        
-        // Creating the sample for the heart rate
-        guard let sampleType: HKSampleType =
-            HKObjectType.quantityType(forIdentifier: .heartRate) else {
-                return
-        }
-        
-        /// Creating an observer, so updates are received whenever HealthKit’s
-        // heart rate data changes.
-        self.heartRateQuery = HKObserverQuery.init(
-            sampleType: sampleType,
-            predicate: nil) { [weak self] _, _, error in
-                guard error == nil else {
-
-                    return
-                }
-                
-                /// When the completion is called, an other query is executed
-                /// to fetch the latest heart rate
-                self?.fetchLatestHeartRateSample(completion: { sample in
-                    guard let sample = sample else {
-                        return
-                    }
-                    
-                    /// The completion in called on a background thread, but we
-                    /// need to update the UI on the main.
-                    DispatchQueue.main.async {
-                        
-                        /// Converting the heart rate to bpm
-                        let heartRateUnit = HKUnit(from: "count/min")
-                        let heartRate = sample
-                            .quantity
-                            .doubleValue(for: heartRateUnit)
-                        let rr = 60 / heartRate * 1000
-                        self?.heartRateLabel.setText(String(format: "HR:%.0f RR:%.0f", heartRate, rr))
-                        self?.sendCurrentHRToPhone(hr: heartRate)
-                        //                    service.sendMessage()
-                        /// Updating the UI with the retrieved value
-                        print("HR: \(Int(heartRate))")
-                        print("RR: \(Int(rr))")
-                    }
-                })
-        }
-    }
-    
-    public func fetchLatestHeartRateSample(
-        completion: @escaping (_ sample: HKQuantitySample?) -> Void) {
-        
-        /// Create sample type for the heart rate
-        guard let sampleType = HKObjectType
-            .quantityType(forIdentifier: .heartRate) else {
-                completion(nil)
-                return
-        }
-        
-        /// Predicate for specifiying start and end dates for the query
-        let predicate = HKQuery
-            .predicateForSamples(
-                withStart: Date.distantPast,
-                end: Date(),
-                options: .strictEndDate)
-        
-        /// Set sorting by date.
-        let sortDescriptor = NSSortDescriptor(
-            key: HKSampleSortIdentifierStartDate,
-            ascending: false)
-        
-        /// Create the query
-        let query = HKSampleQuery(
-            sampleType: sampleType,
-            predicate: predicate,
-            limit: Int(HKObjectQueryNoLimit),
-            sortDescriptors: [sortDescriptor]) { (_, results, error) in
-                
-                guard error == nil else {
-                    print("Error: \(error!.localizedDescription)")
-                    return
-                }
-                
-                completion(results?[0] as? HKQuantitySample)
-        }
-        
-        self.healthStore.execute(query)
-    }
+//    public func subscribeToHeartBeatChanges() {
+//
+//        // Creating the sample for the heart rate
+//        guard let sampleType: HKSampleType =
+//            HKObjectType.quantityType(forIdentifier: .heartRate) else {
+//                return
+//        }
+//
+//        /// Creating an observer, so updates are received whenever HealthKit’s
+//        // heart rate data changes.
+//        self.heartRateQuery = HKObserverQuery.init(
+//            sampleType: sampleType,
+//            predicate: nil) { [weak self] _, _, error in
+//                guard error == nil else {
+//
+//                    return
+//                }
+//
+//                /// When the completion is called, an other query is executed
+//                /// to fetch the latest heart rate
+//                self?.fetchLatestHeartRateSample(completion: { sample in
+//                    guard let sample = sample else {
+//                        return
+//                    }
+//
+//                    /// The completion in called on a background thread, but we
+//                    /// need to update the UI on the main.
+//                    DispatchQueue.main.async {
+//
+//                        /// Converting the heart rate to bpm
+//                        let heartRateUnit = HKUnit(from: "count/min")
+//                        let heartRate = sample
+//                            .quantity
+//                            .doubleValue(for: heartRateUnit)
+//                        let rr = 60 / heartRate * 1000
+//                        self?.heartRateLabel.setText(String(format: "HR:%.0f RR:%.0f", heartRate, rr))
+//                        self?.sendCurrentHRToPhone(hr: heartRate)
+//                        //                    service.sendMessage()
+//                        /// Updating the UI with the retrieved value
+//                        print("HR: \(Int(heartRate))")
+//                        print("RR: \(Int(rr))")
+//                    }
+//                })
+//        }
+//    }
+//
+//    public func fetchLatestHeartRateSample(
+//        completion: @escaping (_ sample: HKQuantitySample?) -> Void) {
+//
+//        /// Create sample type for the heart rate
+//        guard let sampleType = HKObjectType
+//            .quantityType(forIdentifier: .heartRate) else {
+//                completion(nil)
+//                return
+//        }
+//
+//        /// Predicate for specifiying start and end dates for the query
+//        let predicate = HKQuery
+//            .predicateForSamples(
+//                withStart: Date.distantPast,
+//                end: Date(),
+//                options: .strictEndDate)
+//
+//        /// Set sorting by date.
+//        let sortDescriptor = NSSortDescriptor(
+//            key: HKSampleSortIdentifierStartDate,
+//            ascending: false)
+//
+//        /// Create the query
+//        let query = HKSampleQuery(
+//            sampleType: sampleType,
+//            predicate: predicate,
+//            limit: Int(HKObjectQueryNoLimit),
+//            sortDescriptors: [sortDescriptor]) { (_, results, error) in
+//
+//                guard error == nil else {
+//                    print("Error: \(error!.localizedDescription)")
+//                    return
+//                }
+//
+//                completion(results?[0] as? HKQuantitySample)
+//        }
+//
+//        self.healthStore.execute(query)
+//    }
     
     private func readHeartRateData() {
         let asleep = currentSleepSession.asleep
@@ -344,6 +346,108 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         
         healthStore.execute(query)
     }
+    
+    // Workout Methods
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        switch toState {
+        case .running:
+            workoutDidStart(date)
+        case .ended:
+            workoutDidEnd(date)
+        default:
+            print("Unexpected state \(toState)")
+        }
+    }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
+        // Do nothing for now
+        print("Workout error")
+    }
+    
+    func startWorkout() {
+        
+        // If we have already started the workout, then do nothing.
+        if (workoutSession != nil) {
+            return
+        }
+        
+        // Configure the workout session.
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = .other
+        workoutConfiguration.locationType = .indoor
+        
+        do {
+            workoutSession = try HKWorkoutSession(configuration: workoutConfiguration)
+            workoutSession?.delegate = self
+        } catch {
+            fatalError("Unable to create the workout session!")
+        }
+        
+        guard let workoutSession = self.workoutSession else { return }
+        healthStore.start(workoutSession)
+    }
+    
+    func stopWorkout() {
+        guard let workoutSession = self.workoutSession else { return }
+        healthStore.end(workoutSession)
+    }
+    
+    func workoutDidStart(_ date : Date) {
+        if let query = createHeartRateStreamingQuery(date) {
+            self.heartRateQuery = query
+            healthStore.execute(query)
+        } else {
+            print("cannot start")
+        }
+    }
+    
+    func workoutDidEnd(_ date : Date) {
+        healthStore.stop(self.heartRateQuery!)
+//        label.setText("---")
+        workoutSession = nil
+    }
+    
+    func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
+        
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
+        let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictEndDate )
+        //let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate])
+        
+        
+        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+            //guard let newAnchor = newAnchor else {return}
+            //self.anchor = newAnchor
+            self.updateHeartRate(sampleObjects)
+        }
+        
+        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+            //self.anchor = newAnchor!
+            self.updateHeartRate(samples)
+        }
+        return heartRateQuery
+    }
+    
+    func updateHeartRate(_ samples: [HKSample]?) {
+        guard let heartRateSamples = samples as? [HKQuantitySample] else { return }
+        guard let sample = heartRateSamples.first else { return }
+        let heartRate = sample.quantity.doubleValue(for: self.heartRateUnit)
+        let rr = 60 / heartRate * 1000
+        self.sendCurrentHRToPhone(hr: heartRate)
+        DispatchQueue.main.async {
+
+            self.heartRateLabel.setText(String(format: "HR:%.0f RR:%.0f", heartRate, rr))
+
+//            self.label.setText(String(UInt16(value)))
+            
+            // retrieve source from sample
+
+//            self.animateHeart()
+        }
+    }
+    
     
     // Watch Connectivity Methods
     
@@ -541,6 +645,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         proposedSleepStart = nil
     }
     
+    
     // display wake indicator
     
     @IBAction func sleepClicked() {
@@ -558,6 +663,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         currentSleepSession.asleep.append(Date(timeInterval: 1, since: Date()))
         currentSleepSession.isInProgress = true
         
+        
+        
+//        subscribeToHeartBeatChanges() // HR Changes
+        startWorkout()
         updateLabelsForStartedSleepSession()
         writeCurrentSleepSessionToFile()
         
@@ -590,7 +699,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate, ConfirmInte
         if currentSleepSession.awake.count != currentSleepSession.outOfBed.count {
             currentSleepSession.awake.append(Date(timeInterval: -1, since: Date()))
         }
-        
+        stopWorkout()
         let _ = writeCurrentSleepSessionToFile()
         readHeartRateData()
         // cancelPendingNotifications

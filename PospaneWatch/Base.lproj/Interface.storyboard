@@ -118,7 +118,7 @@
                         <group width="1" height="1" alignment="left" layout="vertical" id="WF7-Fp-PZn">
                             <items>
                                 <label width="1" alignment="left" text="Rotate Digital Crown to set the time you fell asleep" textAlignment="center" numberOfLines="3" id="kHC-Ij-esu" userLabel="Sleep Confirmation">
-                                    <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                 </label>
                                 <label width="124" height="50" alignment="center" verticalAlignment="center" text="22:45" textAlignment="center" id="Zad-P3-JK1" userLabel="Proposed Sleep">
                                     <fontDescription key="font" type="system" pointSize="30"/>

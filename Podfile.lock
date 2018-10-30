@@ -10,7 +10,8 @@ PODS:
   - AzureIoTUtility (1.1.4)
   - Font-Awesome-Swift (1.7.2)
   - SIAlertView (1.3)
-  - SwiftLint (0.25.0)
+  - SigmaSwiftStatistics (8.0.1)
+  - SwiftLint (0.27.0)
   - TPKeyboardAvoiding (1.3.2)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - AzureIoTUtility
   - Font-Awesome-Swift (~> 1.7.2)
   - SIAlertView
+  - SigmaSwiftStatistics (~> 8.0)
   - SwiftLint
   - TPKeyboardAvoiding (~> 1.3)
 
@@ -31,6 +33,7 @@ SPEC REPOS:
     - AzureIoTUtility
     - Font-Awesome-Swift
     - SIAlertView
+    - SigmaSwiftStatistics
     - SwiftLint
     - TPKeyboardAvoiding
 
@@ -41,9 +44,10 @@ SPEC CHECKSUMS:
   AzureIoTUtility: cf0e15e2342f7c28f9798f3330ccb5d60950fede
   Font-Awesome-Swift: 83ab9db365379ee6025167cec67bdc5d3226a811
   SIAlertView: 20c794b55eaf44d888773ea51647cf8907723919
-  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
+  SigmaSwiftStatistics: 063591f136428920b3083e3d9c181c9c6b1a9dec
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: d63015ad6150c614468b9e2e388b82534ae07e94
+PODFILE CHECKSUM: 6aa9b2609f46a19757e8164642fee12c6e97ebd9
 
 COCOAPODS: 1.5.3

@@ -28,7 +28,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HR: -- RR: --" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXv-VN-peN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HR: -- RR: -- Phase: --" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXv-VN-peN">
                                 <rect key="frame" x="20" y="449" width="335" height="149"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="149" id="hQd-Ou-F1t"/>
@@ -37,13 +37,30 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XjP-5E-4dj">
+                                <rect key="frame" x="97.5" y="138" width="180" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="3Ok-kz-Waq"/>
+                                    <constraint firstAttribute="height" constant="28" id="WSQ-6N-pYd"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="CoreML 2"/>
+                                    <segment title="Azure"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="ulw-ME-nRv"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XjP-5E-4dj" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="BHF-To-uhq"/>
                             <constraint firstItem="gT6-Ei-8F6" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="Hiv-Go-2Y2"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="WXv-VN-peN" secondAttribute="bottom" constant="20" id="VOU-3y-9K8"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="WXv-VN-peN" secondAttribute="trailing" constant="20" id="bmN-rz-noE"/>
                             <constraint firstItem="gT6-Ei-8F6" firstAttribute="centerY" secondItem="PQr-Ze-W5v" secondAttribute="centerY" id="bmc-lE-pYG"/>
+                            <constraint firstItem="gT6-Ei-8F6" firstAttribute="top" secondItem="XjP-5E-4dj" secondAttribute="bottom" constant="75" id="c6c-qe-DDK"/>
                             <constraint firstItem="WXv-VN-peN" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="xUN-DP-bhY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -51,6 +68,7 @@
                     <navigationItem key="navigationItem" title="Sleep Session" id="wZm-Ee-gft"/>
                     <connections>
                         <outlet property="heartRateLabel" destination="WXv-VN-peN" id="obK-8r-PGC"/>
+                        <outlet property="mlSegmentedControl" destination="XjP-5E-4dj" id="fso-Jr-YxY"/>
                         <outlet property="sleepButton" destination="gT6-Ei-8F6" id="Oi2-gi-Puw"/>
                     </connections>
                 </viewController>

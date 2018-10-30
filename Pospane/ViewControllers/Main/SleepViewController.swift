@@ -18,8 +18,11 @@ class SleepViewController: UIViewController, WCSessionDelegate {
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
     var endTime: Date!
     var alarmTime: Date!
+    var rrWindow: [Double] = []
     private var service: Service?
     @IBOutlet var heartRateLabel: UILabel!
+    @IBOutlet var mlSegmentedControl: UISegmentedControl!
+    var segmentedControlState = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,10 @@ class SleepViewController: UIViewController, WCSessionDelegate {
         
     }
     
+    @IBAction func segmentedControlChanged(_ sender: Any) {
+        segmentedControlState = mlSegmentedControl.selectedSegmentIndex
+    }
+    
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         
         guard let request = message["request"] as? String else { return }
@@ -53,14 +60,23 @@ class SleepViewController: UIViewController, WCSessionDelegate {
             // TODO
             guard let heartRate = message["hr"] as? Double else { return }
             let rr = 60 / heartRate * 1000
-            service?.sendMessage(rr: rr)
-            /// Updating the UI with the retrieved value
-            DispatchQueue.main.async {
-                self.heartRateLabel.text = String(format: "HR:%.2f RR:%.2f", heartRate, rr)
-                
-                print("Phone HR: \(Int(heartRate))")
-                print("Phone RR: \(Int(rr))")
+            rrWindow.append(rr)
+            if segmentedControlState == 1 {
+                service?.sendMessage(rr: rr)
+                /// Updating the UI with the retrieved value
+                DispatchQueue.main.async {
+                    self.heartRateLabel.text = String(format: "HR: %.2f RR: %.2f", heartRate, rr)
+                }
+            } else {
+                let resultTuple = slidingWindowFeatures(rr: rr, values: rrWindow, width: 10)
+                rrWindow = resultTuple.values
+                DispatchQueue.main.async {
+                    self.heartRateLabel.text = String(format: "HR: %.2f RR: %.2f\nPhase: %d", heartRate, rr, resultTuple.output)
+                }
             }
+            print("Phone HR: \(Int(heartRate))")
+            print("Phone RR: \(Int(rr))")
+
             
         } else {
             print("unknown request")

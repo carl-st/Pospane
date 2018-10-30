@@ -56,6 +56,8 @@
 		F9DDFB12207FEA970037ECBC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DED0B5207D514E00202C4E /* Helpers.swift */; };
 		F9DED0B4207D469F00202C4E /* SleepSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D1414D2076B05400667255 /* SleepSession.swift */; };
 		F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DED0B5207D514E00202C4E /* Helpers.swift */; };
+		F9F78DEC2188E4EF00F6B56D /* TrainedModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F9F78DEB2188E4EF00F6B56D /* TrainedModel.mlmodel */; };
+		F9F78DEE2188E9C000F6B56D /* SlidingWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F78DED2188E9C000F6B56D /* SlidingWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,8 @@
 		F9D7F4BB215AC7D60030BD3C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F9DDFB10207FE1070037ECBC /* Sleeping.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Sleeping.plist; sourceTree = "<group>"; };
 		F9DED0B5207D514E00202C4E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		F9F78DEB2188E4EF00F6B56D /* TrainedModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TrainedModel.mlmodel; sourceTree = "<group>"; };
+		F9F78DED2188E9C000F6B56D /* SlidingWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +400,7 @@
 				F9DED0B5207D514E00202C4E /* Helpers.swift */,
 				F964002420867347009BBA3C /* Constants.swift */,
 				F9D7F4BB215AC7D60030BD3C /* Service.swift */,
+				F9F78DED2188E9C000F6B56D /* SlidingWindow.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				F9D1414D2076B05400667255 /* SleepSession.swift */,
+				F9F78DEB2188E4EF00F6B56D /* TrainedModel.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				"${BUILT_PRODUCTS_DIR}/AzureIoTuMqtt/AzureIoTuMqtt.framework",
 				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SIAlertView/SIAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SigmaSwiftStatistics/SigmaSwiftStatistics.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -703,6 +710,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AzureIoTuMqtt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SIAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SigmaSwiftStatistics.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -788,6 +796,7 @@
 				F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */,
 				F94C681C20740500003E9FCE /* SleepModel.xcdatamodeld in Sources */,
 				F9A788502067E9CD00513B1A /* Appearance.swift in Sources */,
+				F9F78DEC2188E4EF00F6B56D /* TrainedModel.mlmodel in Sources */,
 				F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */,
 				F9A7884D2067E69600513B1A /* HealthKitOnbardingViewController.swift in Sources */,
 				F94C681E2074094A003E9FCE /* HistoryViewController.swift in Sources */,
@@ -798,6 +807,7 @@
 				F950B8A52131C25200A4DB7A /* HistoryTableViewCell.swift in Sources */,
 				F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */,
 				F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */,
+				F9F78DEE2188E9C000F6B56D /* SlidingWindow.swift in Sources */,
 				F964002520867347009BBA3C /* Constants.swift in Sources */,
 				F9D1414E2076B05400667255 /* SleepSession.swift in Sources */,
 				F9CCF1002067BB48001D90D2 /* UIConstants.swift in Sources */,

@@ -14,6 +14,7 @@ platform :ios, ' 11.0'
   pod 'SIAlertView'
   pod 'TPKeyboardAvoiding', '~> 1.3'
   pod 'Font-Awesome-Swift', '~> 1.7.2'
+  pod 'SigmaSwiftStatistics', '~> 8.0'
   
   # Pods for Azure IoT Hub
   pod 'AzureIoTUtility'

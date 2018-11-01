@@ -16,6 +16,7 @@ class SleepViewController: UIViewController, WCSessionDelegate {
     private var observerQuery: HKObserverQuery?
     private let heartRateUnit = HKUnit(from: "count/min")
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var endTime: Date!
     var alarmTime: Date!
     var rrWindow: [Double] = []
@@ -27,9 +28,11 @@ class SleepViewController: UIViewController, WCSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
-        service = Service.sharedInstance
         sleepButton.setFAIcon(icon: .FAMoonO, iconSize: 200, forState: .normal)
         sleepButton.layer.cornerRadius = 4.0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         session?.delegate = self
         session?.activate()
     }
@@ -48,19 +51,25 @@ class SleepViewController: UIViewController, WCSessionDelegate {
     
     @IBAction func segmentedControlChanged(_ sender: Any) {
         segmentedControlState = mlSegmentedControl.selectedSegmentIndex
+        if segmentedControlState == 0 {
+            service?.destroy()
+        } else {
+            service = Service.sharedInstance
+        }
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        
+        let managedContext = appDelegate.persistentContainer.viewContext
+
         guard let request = message["request"] as? String else { return }
         
         print(message)
         var response: [String : Any] = [:]
-        if request == "hr" {
+        if request == "heartRate" {
             // TODO
-            guard let heartRate = message["hr"] as? Double else { return }
+            guard let heartRate = message["value"] as? Double else { return }
             let rr = 60 / heartRate * 1000
-            rrWindow.append(rr)
+
             if segmentedControlState == 1 {
                 service?.sendMessage(rr: rr)
                 /// Updating the UI with the retrieved value
@@ -77,9 +86,10 @@ class SleepViewController: UIViewController, WCSessionDelegate {
             print("Phone HR: \(Int(heartRate))")
             print("Phone RR: \(Int(rr))")
 
-            
+        } else if request == "sendData" {
+            handleWatchData(message: message, managedContext: managedContext, replyHandler: replyHandler)
         } else {
-            print("unknown request")
+            print("unknown sleep request")
         }
     }
 }

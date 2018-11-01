@@ -54,23 +54,21 @@ func diff(array: [Double]) -> [Double] {
     for i in 1..<array.count {
         newArray.append(array[i] - array[i-1])
     }
-    print("New array \(newArray)")
     return newArray
 }
 
 func slidingWindowFeatures(rr: Double, values: [Double], width: Int) -> (output: Int64, values: [Double]) {
-    
     var queue = Queue(array: values)
+    queue.enqueue(rr)
     if queue.count < 2 {
         return (0, queue.array)
     }
-    if queue.count == width {
+    if queue.count > width {
         queue.dequeue()
         print(queue)
     }
-    queue.enqueue(rr)
     let array = queue.array
-    
+    print("New array \(array)")
     let mRR = Sigma.average(array) ?? 1
     let hr = 60000 / mRR
     let sdnn = Sigma.standardDeviationSample(array) ?? 0
@@ -90,7 +88,7 @@ func slidingWindowFeatures(rr: Double, values: [Double], width: Int) -> (output:
     let diffMean = Sigma.average(diff(array: array)) ?? 0
     let diffMed = Sigma.median(diff(array: array)) ?? 0
     
-    let model = TrainedModel()
+    let model = TrainedModel70()
     guard let modelOutput = try? model.prediction(mRR: mRR, SDNN: sdnn, HR: hr, CVRR: cvrr, RMSSD: rmssd, PNN50: pnn50, PNN20: pnn20, SDSD: sdsd, medRR: medRR, minRR: minRR, maxRR: maxRR, skewRR: skewRR, kurtRR: kurtRR, varRR: varRR, diffMaxMin: diffMaxMin, diffSum: diffSum, diffMean: diffMean, diffMed: diffMed) else {
         fatalError("Model runtime error")
     }

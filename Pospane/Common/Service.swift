@@ -44,10 +44,13 @@ class Service {
     }
     
     deinit {
+        destroy()
+    }
+    
+    func destroy() {
         IoTHubClient_LL_Destroy(iotHubClientHandle)
         timerDoWork?.invalidate()
     }
-    
     /// Sends a message to the IoT hub
     @objc func sendMessage(rr: Double) {
 

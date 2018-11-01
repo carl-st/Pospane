@@ -16,6 +16,7 @@ public enum ViewControllerStoryboardIdentifier: String {
 
 public enum SegueIdentifier: String {
     case showMain
+    case showResultsViewController
 }
 
 public enum InterfaceControllerStoryBoardIdentifier: String {

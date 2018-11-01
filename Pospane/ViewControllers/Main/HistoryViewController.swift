@@ -15,6 +15,7 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
     var objectToSave: Session?
     private let session: WCSession? = WCSession.isSupported() ? WCSession.default : nil
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var selectedSleep: Session?
 
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Session> = {
         let request = NSFetchRequest<Session>(entityName: "Session")
@@ -35,13 +36,12 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
         print("Session: \(session)")
-        session?.delegate = self
-        session?.activate()
         print("fetchedResultsCntroller: ", fetchedResultsController.fetchedObjects)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("fetchedResultsCntroller: ", fetchedResultsController.fetchedObjects)
+        session?.delegate = self
+        session?.activate()
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -66,28 +66,9 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
         if request == "mostRecentSleepSession" {
             // TODO
         } else if request == "sendData" {
-            print("[DEBUG] Received sleep session data from Apple Watch app. Saving in progess.");
-            //                    self.objectToSave = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:[self managedObjectContext]];
-            let entity = NSEntityDescription.entity(forEntityName: "Session", in: managedContext)!
-            if let objectToSave = NSManagedObject(entity: entity, insertInto: managedContext) as? Session {
-                objectToSave.name = message["name"] as? String
-                objectToSave.creationDate = message["creationDate"] as? Date
-                objectToSave.inBed = message["inBed"] as? Data
-                objectToSave.asleep = message["asleep"] as? Data
-                objectToSave.awake = message["awake"] as? Data
-                objectToSave.outOfBed = message["outOfBed"] as? Data
-            }
-            
-            // notification
-            do {
-                try managedContext.save()
-                replyHandler(["success" : true])
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-            
+           handleWatchData(message: message, managedContext: managedContext, replyHandler: replyHandler)
         } else {
-            print("unknown request")
+            print("unknown history request")
         }
     }
     
@@ -100,6 +81,8 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
         sleepSessionDictionary["asleep"] = mostRecentSleepSession.asleep
         sleepSessionDictionary["awake"] = mostRecentSleepSession.awake
         sleepSessionDictionary["outOfBed"] = mostRecentSleepSession.outOfBed
+        sleepSessionDictionary["phases"] = mostRecentSleepSession.phases
+        print("phases: \(mostRecentSleepSession.phases!)")
         
         return sleepSessionDictionary
     }
@@ -127,6 +110,13 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellReuseIdentifier.HistoryTableViewCell.rawValue) as? HistoryTableViewCell
         cell?.configure(withSession: fetchedResultsController.object(at: indexPath))
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSleep = fetchedResultsController.object(at: indexPath)
+        print(fetchedResultsController.object(at: indexPath))
+        performSegue(withIdentifier: SegueIdentifier.showResultsViewController.rawValue, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -169,5 +159,13 @@ class HistoryViewController: UIViewController, WCSessionDelegate, UITableViewDel
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.showResultsViewController.rawValue {
+            let vc = segue.destination as? ResultsViewController
+            guard let selectedSleep = selectedSleep, let phases = selectedSleep.phases else { return }
+            vc?.resultsText = "Phases \(phases)"
+        }
     }
 }

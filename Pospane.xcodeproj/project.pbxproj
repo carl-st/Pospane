@@ -14,6 +14,7 @@
 		CD1FE994ACACB4A66655ABD1 /* Pods_PospaneWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9852B39F8C4F8637A529CCBE /* Pods_PospaneWatch.framework */; };
 		F919F3EC20B0A6F900C611D9 /* Sleeping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DDFB10207FE1070037ECBC /* Sleeping.plist */; };
 		F919F3ED20B0A7A800C611D9 /* Sleeping.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DDFB10207FE1070037ECBC /* Sleeping.plist */; };
+		F92E65CB2189921B000F6B4C /* TrainedModel70.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F92E65CA2189921B000F6B4C /* TrainedModel70.mlmodel */; };
 		F930CA2F20571B4B0062B2AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA2E20571B4B0062B2AC /* AppDelegate.swift */; };
 		F930CA3120571B4B0062B2AC /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3020571B4B0062B2AC /* SleepViewController.swift */; };
 		F930CA3320571B4B0062B2AC /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930CA3220571B4B0062B2AC /* StatisticsViewController.swift */; };
@@ -40,6 +41,8 @@
 		F964002520867347009BBA3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964002420867347009BBA3C /* Constants.swift */; };
 		F964002620867371009BBA3C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F964002420867347009BBA3C /* Constants.swift */; };
 		F98B863F2061A0B80087DB36 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98B863E2061A0B80087DB36 /* HealthKit.framework */; };
+		F99E76CB218B7CA0004857AA /* WatchMessageHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E76CA218B7CA0004857AA /* WatchMessageHandlers.swift */; };
+		F99E76CD218BA6A8004857AA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99E76CC218BA6A8004857AA /* ResultsViewController.swift */; };
 		F9A7884A2067E69600513B1A /* GetStartedOnbardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */; };
 		F9A7884B2067E69600513B1A /* NotificationsOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */; };
 		F9A7884C2067E69600513B1A /* PageViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A788482067E69600513B1A /* PageViewContainerViewController.swift */; };
@@ -132,6 +135,7 @@
 		A810633CD0766BFBEF17A87A /* Pods-Pospane.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pospane.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pospane/Pods-Pospane.release.xcconfig"; sourceTree = "<group>"; };
 		C3CB844DCC579A53CD984013 /* Pods-PospaneWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PospaneWatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PospaneWatch/Pods-PospaneWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		F662546167969397F063E540 /* Pods_PospaneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PospaneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92E65CA2189921B000F6B4C /* TrainedModel70.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TrainedModel70.mlmodel; sourceTree = "<group>"; };
 		F930CA2B20571B4B0062B2AC /* Pospane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pospane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930CA2E20571B4B0062B2AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F930CA3020571B4B0062B2AC /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 		F950B8A42131C25200A4DB7A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		F964002420867347009BBA3C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F98B863E2061A0B80087DB36 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		F99E76CA218B7CA0004857AA /* WatchMessageHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMessageHandlers.swift; sourceTree = "<group>"; };
+		F99E76CC218BA6A8004857AA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		F9A788462067E69600513B1A /* GetStartedOnbardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedOnbardingViewController.swift; sourceTree = "<group>"; };
 		F9A788472067E69600513B1A /* NotificationsOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsOnboardingViewController.swift; sourceTree = "<group>"; };
 		F9A788482067E69600513B1A /* PageViewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewContainerViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +407,7 @@
 				F964002420867347009BBA3C /* Constants.swift */,
 				F9D7F4BB215AC7D60030BD3C /* Service.swift */,
 				F9F78DED2188E9C000F6B56D /* SlidingWindow.swift */,
+				F99E76CA218B7CA0004857AA /* WatchMessageHandlers.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -421,6 +428,7 @@
 				F930CA3020571B4B0062B2AC /* SleepViewController.swift */,
 				F930CA3220571B4B0062B2AC /* StatisticsViewController.swift */,
 				F94C681D2074094A003E9FCE /* HistoryViewController.swift */,
+				F99E76CC218BA6A8004857AA /* ResultsViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -430,6 +438,7 @@
 			children = (
 				F9D1414D2076B05400667255 /* SleepSession.swift */,
 				F9F78DEB2188E4EF00F6B56D /* TrainedModel.mlmodel */,
+				F92E65CA2189921B000F6B4C /* TrainedModel70.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -809,7 +818,10 @@
 				F9DED0B6207D514E00202C4E /* Helpers.swift in Sources */,
 				F9F78DEE2188E9C000F6B56D /* SlidingWindow.swift in Sources */,
 				F964002520867347009BBA3C /* Constants.swift in Sources */,
+				F92E65CB2189921B000F6B4C /* TrainedModel70.mlmodel in Sources */,
+				F99E76CD218BA6A8004857AA /* ResultsViewController.swift in Sources */,
 				F9D1414E2076B05400667255 /* SleepSession.swift in Sources */,
+				F99E76CB218B7CA0004857AA /* WatchMessageHandlers.swift in Sources */,
 				F9CCF1002067BB48001D90D2 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

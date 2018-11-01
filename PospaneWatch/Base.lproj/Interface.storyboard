@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
     </dependencies>
     <scenes>
         <!--interfaceController-->
@@ -14,6 +14,12 @@
             <objects>
                 <controller identifier="interfaceController" animationDuration="2" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PospaneWatch" customModuleProvider="target">
                     <items>
+                        <label alignment="center" text="Force touch to sleep" textAlignment="center" numberOfLines="3" id="Cjx-n4-1Pc">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                        <label alignment="center" text="HR: -- RR: --" textAlignment="center" id="WEW-u6-LJt">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
                         <group width="1" height="26" alignment="left" layout="vertical" id="brd-pX-cIU">
                             <items>
                                 <group width="1" alignment="center" verticalAlignment="center" hidden="YES" id="jiB-dP-pxy">
@@ -24,25 +30,23 @@
                                 </group>
                                 <group width="1" alignment="center" verticalAlignment="center" id="rfK-yG-Neo">
                                     <items>
-                                        <label alignment="left" text="IN BED SINCE:" id="J9u-L7-IM8"/>
-                                        <label height="18" alignment="left" text="1:32" id="ijG-Z6-5f4"/>
+                                        <label alignment="left" verticalAlignment="center" text="IN BED SINCE:" id="J9u-L7-IM8">
+                                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                        </label>
+                                        <label height="18" alignment="right" text="1:32" id="ijG-Z6-5f4">
+                                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                        </label>
                                     </items>
                                 </group>
                             </items>
                         </group>
-                        <label width="1" height="131" alignment="center" verticalAlignment="center" text="Force touch to sleep" textAlignment="center" numberOfLines="3" id="Cjx-n4-1Pc">
-                            <fontDescription key="font" type="boldSystem" pointSize="30"/>
-                        </label>
-                        <button width="1" alignment="left" title="Beat" id="aBW-5E-H2t">
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Beat" id="aBW-5E-H2t">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="backgroundColor" red="0.97647058819999999" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="beatButtonTapped" destination="AgC-eL-Hgc" id="zdi-nh-I4q"/>
                             </connections>
                         </button>
-                        <label width="136" height="23" alignment="left" text="HR: -- RR: --" textAlignment="center" id="WEW-u6-LJt">
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                        </label>
                     </items>
                     <menu key="menu" id="zmW-bd-HEe"/>
                     <connections>
